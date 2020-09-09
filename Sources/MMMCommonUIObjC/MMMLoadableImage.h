@@ -3,9 +3,8 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-#import "MMMLoadable.h"
+@import Foundation;
+@import MMMLoadable;
 
 NS_ASSUME_NONNULL_BEGIN
 
