@@ -498,14 +498,6 @@ CGFloat MMMHeightOfAreaCoveredByStatusBar(UIView *view, CGRect rect) {
 
 @end
 
-@implementation NSObject (MMMTempleMMMCommonUI)
-
-- (id)mmm_stripNSNull {
-	return ((id)self == [NSNull null]) ? nil : self;
-}
-
-@end
-
 //
 //
 //
