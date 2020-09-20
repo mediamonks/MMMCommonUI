@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
 	s.name = "MMMCommonUI"
-	s.version = "1.0.5"
+	s.version = "1.0.6"
 	s.summary = "Small UI-related pieces reused in many components from MMMTemple"
 	s.description =  s.summary
 	s.homepage = "https://github.com/mediamonks/#{s.name}"
@@ -20,9 +20,9 @@ Pod::Spec.new do |s|
 	s.subspec 'ObjC' do |ss|		
     ss.source_files = [ "Sources/#{s.name}ObjC/*.{h,m}" ]
     ss.dependency 'MMMCommonCore/ObjC'
+    ss.dependency 'MMMLoadable/ObjC'
     ss.dependency 'MMMLog/ObjC'
     ss.dependency 'MMMObservables/ObjC'
-    ss.dependency 'MMMLoadable/ObjC'
   end
 	
 	s.swift_versions = '4.2'
@@ -33,15 +33,15 @@ Pod::Spec.new do |s|
 	s.subspec 'Swift' do |ss|
     ss.source_files = [ "Sources/#{s.name}/*.swift" ]	
     ss.dependency "#{s.name}/ObjC"
-    ss.dependency 'MMMCommonCore/Swift'
-    ss.dependency 'MMMLog/Swift'
-    ss.dependency 'MMMObservables/Swift'
-    ss.dependency 'MMMLoadable/Swift'
+    ss.dependency 'MMMCommonCore'
+    ss.dependency 'MMMLoadable'
+    ss.dependency 'MMMLog'
+    ss.dependency 'MMMObservables'
   end
   
 	s.test_spec 'Tests' do |ss|
 		ss.source_files = "Tests/*.{m,swift}"
 	end  
 
-	s.default_subspec = 'Swift'	
+	s.default_subspec = 'ObjC', 'Swift'	
 end
