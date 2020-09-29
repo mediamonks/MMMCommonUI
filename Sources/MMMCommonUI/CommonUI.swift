@@ -146,4 +146,29 @@ extension UIEdgeInsets {
 	}
 }
 
-// MARK: - This is for misc stuff that is hard to group initially now.
+// MARK: -
+
+extension CGPoint {
+	/// Shorter initializer avoiding labels.
+	public init(_ x: CGFloat, _ y: CGFloat) {
+		self.init(x: x, y: y)
+	}
+}
+
+extension CGSize {
+	/// Shorter initializer avoiding labels.
+	public init(_ width: CGFloat, _ height: CGFloat) {
+		self.init(width: width, height: height)
+	}
+
+	public init(sqaureWithSide side: CGFloat) {
+		self.init(width: side, height: side)
+	}
+}
+
+extension CGRect {
+	/// A rect of the given size with zero origin.
+	public init(size: CGSize) {
+		self.init(origin: .zero, size: size)
+	}
+}

@@ -23,13 +23,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * See `rectWithSize:inRect:contentMode:` for a shortcut supporting UIViewContentMode.
  */
-+ (CGRect)rectWithSize:(CGSize)size anchor:(CGPoint)anchor withinRect:(CGRect)targetRect anchor:(CGPoint)targetAnchor;
++ (CGRect)rectWithSize:(CGSize)size anchor:(CGPoint)anchor withinRect:(CGRect)targetRect anchor:(CGPoint)targetAnchor
+	NS_SWIFT_NAME(rect(withSize:anchor:withinRect:anchor:));
 
 /** 
  * A shortcut for the above method with anchors being the same for both source and target rect.
  * (This way the resulting rect will be always inside of the target one, assuming anchors are within [0; 1] range.)
  */
-+ (CGRect)rectWithSize:(CGSize)size withinRect:(CGRect)targetRect anchor:(CGPoint)anchor;
++ (CGRect)rectWithSize:(CGSize)size withinRect:(CGRect)targetRect anchor:(CGPoint)anchor
+	NS_SWIFT_NAME(rect(withSize:withinRect:anchor:));
 
 /** 
  * A frame for the `sourceRect` positioned within the `targetRect` according to standard `UIViewContentMode` flags
@@ -46,10 +48,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * Note that the origin of the resulting rectangle is rounded to the nearest pixel boundary.
  */
-+ (CGRect)rectWithSize:(CGSize)size atPoint:(CGPoint)center anchor:(CGPoint)anchor;
++ (CGRect)rectWithSize:(CGSize)size atPoint:(CGPoint)center anchor:(CGPoint)anchor
+	NS_SWIFT_NAME(rect(withSize:atPoint:anchor:));
 
 /** Same as rectWithSize:center:anchor: with anchor set to (0.5, 0.5). */
-+ (CGRect)rectWithSize:(CGSize)size center:(CGPoint)center;
++ (CGRect)rectWithSize:(CGSize)size center:(CGPoint)center
+	NS_SWIFT_NAME(rect(withSize:center:));
 
 @end
 
