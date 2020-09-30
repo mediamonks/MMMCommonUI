@@ -12,7 +12,7 @@ extension MMMLayoutUtils {
 
 	/// Shortcut for `MMMLayoutUtils.centerMultiplier(forRatio: MMMLayoutUtils.golden)`.
 	public static var goldenMultiplier: CGFloat {
-		return centerMultiplier(forRatio: inverseGolden)
+		return centerMultiplier(forRatio: golden)
 	}
 }
 
