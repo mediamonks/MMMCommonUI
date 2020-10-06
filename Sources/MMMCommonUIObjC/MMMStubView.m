@@ -27,6 +27,8 @@
 		_label = [[UILabel alloc] init];
 		_label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
 		_label.textColor = [UIColor whiteColor];
+		_label.numberOfLines = 0;
+		_label.textAlignment = NSTextAlignmentCenter;
 		[self addSubview:_label];
 
 		self.backgroundColor = MMMDebugColor(_index);
