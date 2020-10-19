@@ -9,6 +9,7 @@
 
 @implementation MMMKeyboard {
 	MMMObserverHub<id<MMMKeyboardObserver>> *_observerHub;
+	MMMObserverHub<id<MMMKeyboardObserver>> *_earlyObserverHub;
 	CGRect _endFrame;
 }
 
@@ -27,6 +28,7 @@
 	if (self = [super init]) {
 
 		_observerHub = [[MMMObserverHub alloc] initWithObservable:self];
+		_earlyObserverHub = [[MMMObserverHub alloc] initWithObservable:self];
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -83,6 +85,9 @@
 
 	_state = state;
 
+	[_earlyObserverHub forEachObserver:^(id<MMMKeyboardObserver> observer) {
+		[observer keyboard:self willChangeStateWithAnimationDuration:duration curve:curve];
+	}];
 	[_observerHub forEachObserver:^(id<MMMKeyboardObserver> observer) {
 		[observer keyboard:self willChangeStateWithAnimationDuration:duration curve:curve];
 	}];
@@ -100,6 +105,101 @@
 
 - (id<MMMObserverToken>)addObserver:(id<MMMKeyboardObserver>)observer {
 	return [_observerHub safeAddObserver:observer];
+}
+
+- (id<MMMObserverToken>)addEarlyObserver:(id<MMMKeyboardObserver>)observer {
+	return [_earlyObserverHub safeAddObserver:observer];
+}
+
+@end
+
+// MARK: -
+
+#import <objc/runtime.h>
+
+@interface MMMKeyboardLayoutHelper () <MMMKeyboardObserver>
+@end
+
+@implementation MMMKeyboardLayoutHelper {
+	id<MMMObserverToken> _keyboardObserverToken;
+	NSLayoutConstraint *_heightConstraint;
+}
+
+static char MMMKeyboardLayoutGuideKey[] = "MMMKayboardLayoutGuide";
+
++ (MMMKeyboardLayoutHelper *)instanceForView:(UIView *)view createIfNeeded:(BOOL)createIfNeeded {
+	MMMKeyboardLayoutHelper *result = objc_getAssociatedObject(view, MMMKeyboardLayoutGuideKey);
+	if (!result && createIfNeeded) {
+		result = [[MMMKeyboardLayoutHelper alloc] initWithView:view];
+	}
+	return result;
+}
+
+- (id)initWithView:(UIView *)view {
+
+	if (self = [super init]) {
+
+		// Want to be notified earlier than potential users of our constraints.
+		_keyboardObserverToken = [[MMMKeyboard shared] addEarlyObserver:self];
+
+		_layoutGuide = [[UILayoutGuide alloc] init];
+		_layoutGuide.identifier = @"MMMKeyboardLayoutGuide";
+
+		[view addLayoutGuide:_layoutGuide];
+
+		[NSLayoutConstraint activateConstraints:@[
+			_heightConstraint = [NSLayoutConstraint
+				constraintWithItem:_layoutGuide attribute:NSLayoutAttributeHeight
+				relatedBy:NSLayoutRelationEqual
+				toItem:nil attribute:NSLayoutAttributeNotAnAttribute
+				multiplier:1 constant:0
+			],
+			[NSLayoutConstraint
+				constraintWithItem:_layoutGuide attribute:NSLayoutAttributeBottom
+				relatedBy:NSLayoutRelationEqual
+				toItem:view attribute:NSLayoutAttributeBottom
+				multiplier:1 constant:0
+			],
+			// These two are optional as nobody needs to constrain to the sides of our guide,
+			// still might look nicer when debugging it.
+			[NSLayoutConstraint
+				constraintWithItem:_layoutGuide attribute:NSLayoutAttributeLeading
+				relatedBy:NSLayoutRelationEqual
+				toItem:view attribute:NSLayoutAttributeLeading
+				multiplier:1 constant:0
+			],
+			[NSLayoutConstraint
+				constraintWithItem:_layoutGuide attribute:NSLayoutAttributeTrailing
+				relatedBy:NSLayoutRelationEqual
+				toItem:view attribute:NSLayoutAttributeTrailing
+				multiplier:1 constant:0
+			]
+		]];
+
+		objc_setAssociatedObject(view, MMMKeyboardLayoutGuideKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	}
+
+	return self;
+}
+
+- (void)update {
+	UIView *view = _layoutGuide.owningView;
+	_heightConstraint.constant = view ? [[MMMKeyboard shared] heightOfPartCoveredByKeyboardForView:view] : 0;
+}
+
+- (void)keyboard:(MMMKeyboard *)keyboard
+	willChangeStateWithAnimationDuration:(NSTimeInterval)duration
+	curve:(UIViewAnimationCurve)curve
+{
+	[self update];
+}
+
+@end
+
+@implementation UIView (MMMKeyboard)
+
+- (MMMKeyboardLayoutHelper *)mmm_keyboard {
+	return [MMMKeyboardLayoutHelper instanceForView:self createIfNeeded:YES];
 }
 
 @end

@@ -83,4 +83,48 @@ typedef NS_ENUM(NSInteger, MMMKeyboardState) {
 
 @end
 
+/**
+ * Tracks the area of a view covered by the keyboard (via `MMMKeyboard`) and maintains a corresponding layout guide
+ * for a given view that can be used to constrain your own views to sit above the keyboard.
+ */
+@interface MMMKeyboardLayoutHelper: NSObject
+
+- (id)initWithView:(UIView *)view NS_DESIGNATED_INITIALIZER;
+- (id)init NS_UNAVAILABLE;
+
+/**
+ * A layout guide corresponding to the bottom part of this view covered by the keyboard. Its top side can be used
+ * to make sure your views sit above the keyboard.
+ *
+ * In case the keyboard is hidden or does not cover the view, then the guide is folded into a zero height strip
+ * in the bottom.
+ *
+ * ```
+ *  ┌ ─ ─ ─ ┐   ┌ ─ ─ ─ ┐
+ *
+ *  │       │   │       │
+ *
+ *  ├───────┤   │       │
+ *  │       │─┐
+ *  └───────┘ └▶┗━━━━━━━┛
+ * ```
+ */
+@property (nonatomic, readonly) UILayoutGuide *layoutGuide;
+
+/**
+ * Should be called when the frame of your view could could have changed relatively to the frame of the keyboard.
+ *
+ * Called automatically when the keyboard changes state but this might be not enough if your view moves around.
+ */
+- (void)update;
+
+@end
+
+@interface UIView (MMMKeyboard)
+
+/// An instance of `MMMKeyboardLayoutHelper` associated with this view.
+@property (nonatomic, readonly) MMMKeyboardLayoutHelper *mmm_keyboard;
+
+@end
+
 NS_ASSUME_NONNULL_END
