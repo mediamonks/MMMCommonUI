@@ -1166,39 +1166,61 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 
 		[super addSubview:v];
 
-		// Opposite direction leading
-		[self addConstraint:[NSLayoutConstraint
-			constraintWithItem:v attribute:[self oppositeDirectionLeadingAttribute]
-			relatedBy: NSLayoutRelationGreaterThanOrEqual
-			toItem:self attribute:[self oppositeDirectionLeadingAttribute]
-			multiplier:1 constant:[self oppositeLeadingInset]
-			identifier:@"MMM-Opposite-Leading-GE"
-		]];
-		[self addConstraint:[NSLayoutConstraint
-			constraintWithItem:v attribute:[self oppositeDirectionLeadingAttribute]
-			relatedBy:NSLayoutRelationEqual
-			toItem:self attribute:[self oppositeDirectionLeadingAttribute]
-			multiplier:1 constant:[self oppositeLeadingInset]
-			priority:pinLeading ? UILayoutPriorityRequired : UILayoutPriorityDefaultLow + 1
-			identifier:@"MMM-Opposite-Leading"
-		]];
+		// Opposite direction leading.
+		if (pinLeading) {
+			[self addConstraint:[NSLayoutConstraint
+				constraintWithItem:v attribute:[self oppositeDirectionLeadingAttribute]
+				relatedBy:NSLayoutRelationEqual
+				toItem:self attribute:[self oppositeDirectionLeadingAttribute]
+				multiplier:1 constant:[self oppositeLeadingInset]
+				priority:UILayoutPriorityRequired
+				identifier:@"MMM-OppositeLeading-Pin"
+			]];
+		} else {
+			[self addConstraint:[NSLayoutConstraint
+				constraintWithItem:v attribute:[self oppositeDirectionLeadingAttribute]
+				relatedBy: NSLayoutRelationGreaterThanOrEqual
+				toItem:self attribute:[self oppositeDirectionLeadingAttribute]
+				multiplier:1 constant:[self oppositeLeadingInset]
+				identifier:@"MMM-OppositeLeading-DoublePin"
+			]];
+			[self addConstraint:[NSLayoutConstraint
+				constraintWithItem:v attribute:[self oppositeDirectionLeadingAttribute]
+				relatedBy:NSLayoutRelationEqual
+				toItem:self attribute:[self oppositeDirectionLeadingAttribute]
+				multiplier:1 constant:[self oppositeLeadingInset]
+				priority:UILayoutPriorityDefaultLow + 1
+				identifier:@"MMM-OppositeLeading-DoublePin"
+			]];
+		}
 
-		// Opposite direction leading trailing
-		[self addConstraint:[NSLayoutConstraint
-			constraintWithItem:v attribute:[self oppositeDirectionTrailingAttribute]
-			relatedBy:NSLayoutRelationLessThanOrEqual
-			toItem:self attribute:[self oppositeDirectionTrailingAttribute]
-			multiplier:1 constant:-[self oppositeTrailingInset]
-			identifier:@"MMM-Opposite-Trailing"
-		]];
-		[self addConstraint:[NSLayoutConstraint
-			constraintWithItem:v attribute:[self oppositeDirectionTrailingAttribute]
-			relatedBy:NSLayoutRelationEqual
-			toItem:self attribute:[self oppositeDirectionTrailingAttribute]
-			multiplier:1 constant:-[self oppositeTrailingInset]
-			priority:pinTrailing ? UILayoutPriorityRequired : UILayoutPriorityDefaultLow + 1
-			identifier:@"MMM-Opposite-Trailing"
-		]];
+		// Opposite direction trailing.
+		if (pinTrailing) {
+			[self addConstraint:[NSLayoutConstraint
+				constraintWithItem:v attribute:[self oppositeDirectionTrailingAttribute]
+				relatedBy:NSLayoutRelationEqual
+				toItem:self attribute:[self oppositeDirectionTrailingAttribute]
+				multiplier:1 constant:-[self oppositeTrailingInset]
+				priority:UILayoutPriorityRequired
+				identifier:@"MMM-OppositeTrailing-Pin"
+			]];
+		} else {
+			[self addConstraint:[NSLayoutConstraint
+				constraintWithItem:v attribute:[self oppositeDirectionTrailingAttribute]
+				relatedBy:NSLayoutRelationLessThanOrEqual
+				toItem:self attribute:[self oppositeDirectionTrailingAttribute]
+				multiplier:1 constant:-[self oppositeTrailingInset]
+				identifier:@"MMM-OppositeTrailing-DoublePin"
+			]];
+			[self addConstraint:[NSLayoutConstraint
+				constraintWithItem:v attribute:[self oppositeDirectionTrailingAttribute]
+				relatedBy:NSLayoutRelationEqual
+				toItem:self attribute:[self oppositeDirectionTrailingAttribute]
+				multiplier:1 constant:-[self oppositeTrailingInset]
+				priority:UILayoutPriorityDefaultLow + 1
+				identifier:@"MMM-OppositeTrailing-DoublePin"
+			]];
+		}
 
 		// Opposite direction center, if needed
 		if (_alignment == MMMLayoutHorizontalAlignmentCenter) {
@@ -1207,7 +1229,7 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 				relatedBy:NSLayoutRelationEqual
 				toItem:self attribute:[self oppositeDirectionCenterAttribute]
 				multiplier:1 constant:0
-				identifier:@"MMM-Opposite-Center"
+				identifier:@"MMM-OppositeCenter"
 			]];
 		}
 
@@ -1219,7 +1241,7 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 				relatedBy:NSLayoutRelationEqual
 				toItem:self attribute:[self leadingAttribute]
 				multiplier:1 constant:[self leadingInset]
-				identifier:@"MMM-Leading"
+				identifier:@"MMM-First"
 			]];
 		} else {
 			[self addConstraint:[NSLayoutConstraint
@@ -1241,7 +1263,7 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 			relatedBy:NSLayoutRelationEqual
 			toItem:self attribute:[self trailingAttribute]
 			multiplier:1 constant:-[self trailingInset]
-			identifier:@"MMM-Trailing"
+			identifier:@"MMM-Last"
 		]];
 	}
 }
