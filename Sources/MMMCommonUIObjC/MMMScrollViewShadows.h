@@ -76,3 +76,24 @@
 - (nonnull id)init NS_DESIGNATED_INITIALIZER;
 
 @end
+
+//
+
+typedef NS_ENUM(NSInteger, MMMScrollViewShadowAlignment) {
+	MMMScrollViewShadowAlignmentTop,
+	MMMScrollViewShadowAlignmentBottom
+};
+
+/// A view that's used internally to render shadows in MMMAutoLayoutScrollView.
+/// Open for reuse in cases we want to display compatible shadows but differntly controlled.
+/// Note that this does not support Auto Layout, you have to manage its frame.
+@interface MMMScrollViewShadowView : UIView
+
+- (id)initWithAlignment:(MMMScrollViewShadowAlignment)alignment
+	settings:(MMMScrollViewShadowsSettings *)settings NS_DESIGNATED_INITIALIZER;
+
+- (id)init NS_UNAVAILABLE;
+- (id)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
+- (id)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+
+@end

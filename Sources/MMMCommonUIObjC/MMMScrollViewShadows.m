@@ -56,22 +56,6 @@
 //
 //
 
-typedef NS_ENUM(NSInteger, MMMScrollViewShadowAlignment) {
-	MMMScrollViewShadowAlignmentTop,
-	MMMScrollViewShadowAlignmentBottom
-};
-
-@interface MMMScrollViewShadowView : UIView
-
-- (id)initWithAlignment:(MMMScrollViewShadowAlignment)alignment
-	settings:(MMMScrollViewShadowsSettings *)settings NS_DESIGNATED_INITIALIZER;
-
-- (id)init NS_UNAVAILABLE;
-- (id)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
-- (id)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
-
-@end
-
 @implementation MMMScrollViewShadowView {
 	MMMScrollViewShadowAlignment _alignment;
 	MMMScrollViewShadowsSettings *_settings;
