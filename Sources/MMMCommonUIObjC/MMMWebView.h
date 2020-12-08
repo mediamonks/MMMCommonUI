@@ -13,8 +13,8 @@
  */
 @interface MMMWebView : WKWebView
 
-- (instancetype)initWithSettings:(MMMScrollViewShadowsSettings *)settings;
-- (instancetype)initWithSettings:(MMMScrollViewShadowsSettings *)settings configuration:(WKWebViewConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithSettings:(MMMScrollViewShadowsSettings *)settings;
+- (nonnull instancetype)initWithSettings:(MMMScrollViewShadowsSettings *)settings configuration:(WKWebViewConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
