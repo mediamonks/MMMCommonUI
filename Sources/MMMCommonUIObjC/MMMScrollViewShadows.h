@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class MMMScrollViewShadowsSettings;
 
 /**
@@ -97,3 +99,5 @@ typedef NS_ENUM(NSInteger, MMMScrollViewShadowAlignment) {
 - (id)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END
