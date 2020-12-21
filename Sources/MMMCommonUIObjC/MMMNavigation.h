@@ -23,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *action;
 
 /** Optional parameters for this hop only. */
-@property (nonatomic, readonly, nullable) NSDictionary *params;
+@property (nonatomic, readonly, nullable) NSDictionary<NSString*, id> *params;
 
-- (id)initWithAction:(NSString *)action params:(nullable NSDictionary *)params NS_DESIGNATED_INITIALIZER;
+- (id)initWithAction:(NSString *)action params:(nullable NSDictionary<NSString*, id> *)params NS_DESIGNATED_INITIALIZER;
 
 - (id)initWithAction:(NSString *)action;
 
