@@ -209,6 +209,10 @@
 	return self;
 }
 
+- (void)markAsRemoved {
+	_handler = nil;
+}
+
 @end
 
 //
@@ -273,6 +277,15 @@
 		MMM_LOG_TRACE(@"No more pending navigation requests");
 		return;
 	}
+	
+	// Collecting garbage first.
+	NSMutableArray *handlers = [[NSMutableArray alloc] init];
+	for (MMMNavigationHandlerInfo *handlerInfo in _handlers) {
+		if (handlerInfo.handler) {
+			[handlers addObject:handlerInfo];
+		}
+	}
+	_handlers = handlers;
 
 	_currentRequest = [_requestQueue firstObject];
 	[_requestQueue removeObjectAtIndex:0];
@@ -349,7 +362,8 @@
 }
 
 - (void)removeHandlerWithId:(MMMNavigationHandlerId)handlerId {
-	[_handlers removeObjectIdenticalTo:handlerId];
+	MMMNavigationHandlerInfo *info = handlerId;
+	[info markAsRemoved];
 }
 
 @end
