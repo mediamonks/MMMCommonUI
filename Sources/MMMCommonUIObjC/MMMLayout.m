@@ -1097,10 +1097,10 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 }
 
 - (void)addSubview:(UIView *)view {
-//	NSAssert(NO, @"%@ allows to set subviews via %s only", self.class, sel_getName(@selector(setSubviews:)));
+	NSAssert(NO, @"%@ allows to set subviews via %s only", self.class, sel_getName(@selector(setSubviews:)));
 }
 
-/** Potentially can replace this with a predicate, so diffetent spacings can be set between items of different kinds. */
+/** Potentially can replace this with a predicate, so different spacings can be set between items of different kinds. */
 - (CGFloat)spacingBetweenItem:(UIView *)item1 andItem:(UIView *)item2 {
 	return _spacing;
 }
