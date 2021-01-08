@@ -1189,7 +1189,7 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 				relatedBy:NSLayoutRelationEqual
 				toItem:self attribute:[self oppositeDirectionLeadingAttribute]
 				multiplier:1 constant:[self oppositeLeadingInset]
-				priority:UILayoutPriorityDefaultLow + 1
+				priority:UILayoutPriorityDefaultLow - 1
 				identifier:@"MMM-OppositeLeading-DoublePin"
 			]];
 		}
@@ -1217,7 +1217,7 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 				relatedBy:NSLayoutRelationEqual
 				toItem:self attribute:[self oppositeDirectionTrailingAttribute]
 				multiplier:1 constant:-[self oppositeTrailingInset]
-				priority:UILayoutPriorityDefaultLow + 1
+				priority:UILayoutPriorityDefaultLow - 1
 				identifier:@"MMM-OppositeTrailing-DoublePin"
 			]];
 		}

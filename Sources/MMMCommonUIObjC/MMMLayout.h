@@ -127,7 +127,7 @@ inline CGFloat MMMCenterMultiplierForRatio(CGFloat ratio) {
 
 /**
  * Auto Layout does not support constraints against groups of items, so this is for the cases a normal UIView is
- * typically used as a contrainer for such a group. 
+ * typically used as a container for such a group. 
  * Unlike UIView we have translatesAutoresizingMaskIntoConstraints set to NO already.
  */
 @interface MMMContainerView : UIView
