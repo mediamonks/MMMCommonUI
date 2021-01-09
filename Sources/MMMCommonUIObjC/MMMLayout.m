@@ -1078,6 +1078,11 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 	NSMutableArray<UIView *> *_managedSubviews;
 }
 
+// Needed to behave well when nothing is added into the stack yet.
++ (BOOL)requiresConstraintBasedLayout {
+	return YES;
+}
+
 - (id)initWithDirection:(MMMLayoutDirection)direction
 	insets:(UIEdgeInsets)insets
 	alignment:(MMMLayoutAlignment)alignment
@@ -1091,8 +1096,8 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 		_insets = insets;
 		_alignment = alignment;
 		_spacing = spacing;
-
 	}
+
 	return self;
 }
 

@@ -102,7 +102,7 @@ public final class MMMGridContainer: MMMVerticalStackContainer {
 			return rowStack
 		}
 
-		self.setSubviews(rowStacks)
+		super.setSubviews(rowStacks)
 
 		// Let's apply same row height constraint.
 		for i in stride(from: rowStacks.startIndex, to: rowStacks.endIndex - 1, by: 1) {
