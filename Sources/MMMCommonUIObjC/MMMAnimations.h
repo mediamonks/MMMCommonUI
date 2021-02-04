@@ -151,13 +151,15 @@ typedef void (^MMMAnimatorDoneBlock)(MMMAnimationHandle *item, BOOL cancelled);
  */
 - (MMMAnimationHandle *)addAnimationWithDuration:(CGFloat)duration
 	updateBlock:(MMMAnimatorUpdateBlock)updateBlock
-	doneBlock:(nullable MMMAnimatorDoneBlock)doneBlock;
+	doneBlock:(nullable MMMAnimatorDoneBlock)doneBlock 
+	NS_SWIFT_NAME(addAnimation(duration:update:completion:));
 
 - (MMMAnimationHandle *)addAnimationWithDuration:(CGFloat)duration
 	repeatCount:(NSInteger)repeatCount
 	autoreverse:(BOOL)autoreverse
 	updateBlock:(MMMAnimatorUpdateBlock)updateBlock
-	doneBlock:(nullable MMMAnimatorDoneBlock)doneBlock;
+	doneBlock:(nullable MMMAnimatorDoneBlock)doneBlock
+	NS_SWIFT_NAME(addAnimation(duration:repeatCount:autoreverse:update:completion:));
 
 /** Despite the +shared method defined above you can still create own instances of this class. */
 - (id)init NS_DESIGNATED_INITIALIZER;
@@ -177,7 +179,8 @@ typedef void (^MMMAnimatorDoneBlock)(MMMAnimationHandle *item, BOOL cancelled);
  */
 - (void)_testRunInNumberOfSteps:(NSInteger)numberOfSteps
 	animations:(void (NS_NOESCAPE ^)(void))animationsBlock
-	forEachStep:(void (NS_NOESCAPE ^)(NSInteger stepIndex))stepBlock;
+	forEachStep:(void (NS_NOESCAPE ^)(NSInteger stepIndex))stepBlock
+		NS_SWIFT_NAME(_testRun(numberOfSteps:animations:stepBlock:));
 
 @end
 
