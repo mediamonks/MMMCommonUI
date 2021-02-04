@@ -151,13 +151,13 @@ typedef void (^MMMAnimatorDoneBlock)(MMMAnimationHandle *item, BOOL cancelled);
  */
 - (MMMAnimationHandle *)addAnimationWithDuration:(CGFloat)duration
 	updateBlock:(MMMAnimatorUpdateBlock)updateBlock
-	doneBlock:(MMMAnimatorDoneBlock)doneBlock;
+	doneBlock:(nullable MMMAnimatorDoneBlock)doneBlock;
 
 - (MMMAnimationHandle *)addAnimationWithDuration:(CGFloat)duration
 	repeatCount:(NSInteger)repeatCount
 	autoreverse:(BOOL)autoreverse
 	updateBlock:(MMMAnimatorUpdateBlock)updateBlock
-	doneBlock:(MMMAnimatorDoneBlock)doneBlock;
+	doneBlock:(nullable MMMAnimatorDoneBlock)doneBlock;
 
 /** Despite the +shared method defined above you can still create own instances of this class. */
 - (id)init NS_DESIGNATED_INITIALIZER;
