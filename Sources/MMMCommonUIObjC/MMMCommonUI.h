@@ -278,24 +278,28 @@ extern CGFloat MMMHeightOfAreaCoveredByStatusBar(UIView *view, CGRect rect);
  */
 + (UIImage *)mmm_imageFromPDFNamed:(NSString *)name
 	rasterizedForHeight:(CGFloat)height
-	tintColor:(nullable UIColor *)tintColor;
+	tintColor:(nullable UIColor *)tintColor NS_SWIFT_NAME(mmm_imageFromPDF(name:rasterizedHeight:tintColor:));
 
 /**
  * A shortcut for `mmm_imageFromPDFNamed:rasterizedForHeight:tintColot` without tinting
  * (passing `nil` for `tintColor`).
  */
-+ (UIImage *)mmm_imageFromPDFNamed:(NSString *)name rasterizedForHeight:(CGFloat)height;
++ (UIImage *)mmm_imageFromPDFNamed:(NSString *)name rasterizedForHeight:(CGFloat)height
+	NS_SWIFT_NAME(mmm_imageFromPDF(name:rasterizedHeight:));
 
 /**
  * A shortcut for `mmm_imageFromPDFNamed:rasterizedForHeight:tintColot` without scaling
  * (passing 0 for `height`).
  */
-+ (UIImage *)mmm_imageFromPDFNamed:(NSString *)name tintColor:(UIColor *)tintColor;
++ (UIImage *)mmm_imageFromPDFNamed:(NSString *)name tintColor:(UIColor *)tintColor
+	NS_SWIFT_NAME(mmm_imageFromPDF(name:tintColor:));
 
 /**
  * A non-caching version of `mmm_imageFromPDFNamed:rasterizedForHeight:tintColor:` using a concrete file path.
  */
-+ (UIImage *)mmm_imageFromPDFWithPath:(NSString *)path rasterizedForHeight:(CGFloat)height tintColor:(nullable UIColor *)tintColor;
++ (UIImage *)mmm_imageFromPDFWithPath:(NSString *)path 
+	rasterizedForHeight:(CGFloat)height
+	tintColor:(nullable UIColor *)tintColor NS_SWIFT_NAME(mmm_imageFromPDF(path:rasterizedHeight:tintColor:));
 
 /**
  * Image of the given size in points and color, possibly transparent.

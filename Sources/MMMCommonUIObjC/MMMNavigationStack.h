@@ -45,7 +45,9 @@ typedef void (^MMMNavigationStackCompletion)(BOOL success);
  * For now trying to push something when "popping" is in progress is considered a programmer's error however and it will crash 
  * in Debug.
  */
-- (nullable id<MMMNavigationStackItem>)pushItemWithName:(NSString *)name delegate:(id<MMMNavigationStackItemDelegate>)delegate controller:(nullable id)controller;
+- (nullable id<MMMNavigationStackItem>)pushItemWithName:(NSString *)name
+	delegate:(id<MMMNavigationStackItemDelegate>)delegate
+	controller:(nullable id)controller NS_SWIFT_NAME(pushItem(name:delegate:controller:));
 
 //~ - (id<MMMNavigationStackItem>)pushItemWithName:(NSString *)name delegate:(id<MMMNavigationStackItemDelegate>)delegate;
 
