@@ -3,9 +3,7 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
-#import "MMMLoadable.h"
-#import "MMMLoadableImage.h"
-
+@import MMMLoadable;
 @import Photos;
 
 NS_ASSUME_NONNULL_BEGIN
