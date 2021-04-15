@@ -7,7 +7,7 @@
 
 @import MMMCommonCore;
 
-#import "MMMCommonUI.h"
+#import "MMMCommonUIMisc.h"
 #import <objc/runtime.h>
 
 //

@@ -5,7 +5,7 @@
 
 #import "MMMImageView.h"
 
-#import "MMMCommonUI.h"
+#import "MMMCommonUIMisc.h"
 #import "MMMLayout.h"
 
 @implementation MMMImageView {

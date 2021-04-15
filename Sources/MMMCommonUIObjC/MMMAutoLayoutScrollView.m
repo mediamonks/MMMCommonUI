@@ -6,7 +6,7 @@
 #import "MMMAutoLayoutScrollView.h"
 
 #import "MMMAnimations.h"
-#import "MMMCommonUI.h"
+#import "MMMCommonUIMisc.h"
 #import "MMMLayout.h"
 #import "MMMScrollViewShadows.h"
 

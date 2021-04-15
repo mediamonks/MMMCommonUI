@@ -5,7 +5,7 @@
 
 #import "MMMStylesheet.h"
 
-#import "MMMCommonUI.h"
+#import "MMMCommonUIMisc.h"
 #import "MMMLayout.h"
 
 NSString * const MMMSizeClassic = @"classic";

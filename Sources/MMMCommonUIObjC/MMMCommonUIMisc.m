@@ -3,7 +3,7 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
-#import "MMMCommonUI.h"
+#import "MMMCommonUIMisc.h"
 
 @import MMMLog;
 @import MMMCommonCore;

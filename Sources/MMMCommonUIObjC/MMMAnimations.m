@@ -5,7 +5,7 @@
 
 #import "MMMAnimations.h"
 
-#import "MMMCommonUI.h"
+#import "MMMCommonUIMisc.h"
 
 typedef struct {
 	NSTimeInterval timestamp;
