@@ -37,7 +37,27 @@ typedef NS_ENUM(NSInteger, MMMAnimationCurve) {
 	// "Softer" versions are closer to the linear curve.
 	MMMAnimationCurveSofterEaseIn,
 	MMMAnimationCurveSofterEaseOut,
-	MMMAnimationCurveSofterEaseInOut
+	MMMAnimationCurveSofterEaseInOut,
+	
+	// Quad animations (e.g. https://easings.net/#easeInQuad)
+	MMMAnimationCurveEaseInQuad,
+	MMMAnimationCurveEaseOutQuad,
+	MMMAnimationCurveEaseInOutQuad,
+	
+	// Cubic animations (e.g. https://easings.net/#easeInCubic)
+	MMMAnimationCurveEaseInCubic,
+	MMMAnimationCurveEaseOutCubic,
+	MMMAnimationCurveEaseInOutCubic,
+	
+	// Quart animations (e.g. https://easings.net/#easeInQuart)
+	MMMAnimationCurveEaseInQuart,
+	MMMAnimationCurveEaseOutQuart,
+	MMMAnimationCurveEaseInOutQuart,
+	
+	// Quint animations (e.g. https://easings.net/#easeInQuint)
+	MMMAnimationCurveEaseInQuint,
+	MMMAnimationCurveEaseOutQuint,
+	MMMAnimationCurveEaseInOutQuint
 };
 
 /** Animation curve opposite to the given one, e.g. EaseIn for EaseOut. */

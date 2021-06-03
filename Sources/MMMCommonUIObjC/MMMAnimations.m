@@ -111,6 +111,10 @@ MMMAnimationCurve MMMReverseAnimationCurve(MMMAnimationCurve curve) {
 		case MMMAnimationCurveLinear:
 		case MMMAnimationCurveEaseInOut:
 		case MMMAnimationCurveSofterEaseInOut:
+		case MMMAnimationCurveEaseInOutQuad:
+		case MMMAnimationCurveEaseInOutCubic:
+		case MMMAnimationCurveEaseInOutQuart:
+		case MMMAnimationCurveEaseInOutQuint:
 			return curve;
 
 		case MMMAnimationCurveEaseOut:
@@ -122,6 +126,27 @@ MMMAnimationCurve MMMReverseAnimationCurve(MMMAnimationCurve curve) {
 			return MMMAnimationCurveSofterEaseOut;
 		case MMMAnimationCurveSofterEaseOut:
 			return MMMAnimationCurveSofterEaseIn;
+			
+		case MMMAnimationCurveEaseOutQuad:
+			return MMMAnimationCurveEaseInQuad;
+		case MMMAnimationCurveEaseInQuad:
+			return MMMAnimationCurveEaseOutQuad;
+		
+		case MMMAnimationCurveEaseOutCubic:
+			return MMMAnimationCurveEaseInCubic;
+		case MMMAnimationCurveEaseInCubic:
+			return MMMAnimationCurveEaseOutCubic;
+		
+		case MMMAnimationCurveEaseOutQuart:
+			return MMMAnimationCurveEaseInQuart;
+		case MMMAnimationCurveEaseInQuart:
+			return MMMAnimationCurveEaseOutQuart;
+		
+		case MMMAnimationCurveEaseOutQuint:
+			return MMMAnimationCurveEaseInQuint;
+		case MMMAnimationCurveEaseInQuint:
+			return MMMAnimationCurveEaseOutQuint;
+		
 	}
 }
 
@@ -135,6 +160,46 @@ MMMAnimationCurve MMMReverseAnimationCurve(MMMAnimationCurve curve) {
 static inline CGFloat MMMAnimationUtils_EaseIn(const CGFloat t, const CGFloat k) {
 	CGFloat tt = t * t;
 	return (k - 2) * t * tt + (3 - k) * tt;
+}
+
+static inline CGFloat MMMAnimationUtils_EaseInQuad(const CGFloat t) { return t * t; }
+static inline CGFloat MMMAnimationUtils_EaseOutQuad(const CGFloat t) { return 1 - MMMAnimationUtils_EaseInQuad(1 - t); }
+static inline CGFloat MMMAnimationUtils_EaseInOutQuad(const CGFloat t) {
+	if (t <= .5f) {
+		return .5f * MMMAnimationUtils_EaseInQuad(t / .5f);
+	} else {
+		return 1 - (.5f * MMMAnimationUtils_EaseInQuad(1 - (t - .5f) / .5f));
+	}
+}
+
+static inline CGFloat MMMAnimationUtils_EaseInCubic(const CGFloat t) { return t * t * t; }
+static inline CGFloat MMMAnimationUtils_EaseOutCubic(const CGFloat t) { return 1 - MMMAnimationUtils_EaseInCubic(1 - t); }
+static inline CGFloat MMMAnimationUtils_EaseInOutCubic(const CGFloat t) {
+	if (t <= .5f) {
+		return .5f * MMMAnimationUtils_EaseInCubic(t / .5f);
+	} else {
+		return 1 - (.5f * MMMAnimationUtils_EaseInCubic(1 - (t - .5f) / .5f));
+	}
+}
+
+static inline CGFloat MMMAnimationUtils_EaseInQuart(const CGFloat t) { return t * t * t * t; }
+static inline CGFloat MMMAnimationUtils_EaseOutQuart(const CGFloat t) { return 1 - MMMAnimationUtils_EaseInQuart(1 - t); }
+static inline CGFloat MMMAnimationUtils_EaseInOutQuart(const CGFloat t) {
+	if (t <= .5f) {
+		return .5f * MMMAnimationUtils_EaseInQuart(t / .5f);
+	} else {
+		return 1 - (.5f * MMMAnimationUtils_EaseInQuart(1 - (t - .5f) / .5f));
+	}
+}
+
+static inline CGFloat MMMAnimationUtils_EaseInQuint(const CGFloat t) { return t * t * t * t * t; }
+static inline CGFloat MMMAnimationUtils_EaseOutQuint(const CGFloat t) { return 1 - MMMAnimationUtils_EaseInQuint(1 - t); }
+static inline CGFloat MMMAnimationUtils_EaseInOutQuint(const CGFloat t) {
+	if (t <= .5f) {
+		return .5f * MMMAnimationUtils_EaseInQuint(t / .5f);
+	} else {
+		return 1 - (.5f * MMMAnimationUtils_EaseInQuint(1 - (t - .5f) / .5f));
+	}
 }
 
 static inline CGFloat MMMAnimationUtils_BaseCurve(CGFloat time, MMMAnimationCurve curve, CGFloat k) {
@@ -159,7 +224,7 @@ static inline CGFloat MMMAnimationUtils_BaseCurve(CGFloat time, MMMAnimationCurv
 			} else {
 				return 1 - (.5f * MMMAnimationUtils_EaseIn(1 - (time - .5f) / .5f, k));
 			}
-
+		
 		default:
 			NSCAssert(NO, @"");
 			return 0;
@@ -204,6 +269,35 @@ static inline CGFloat MMMAnimationUtils_BaseCurve(CGFloat time, MMMAnimationCurv
 		case MMMAnimationCurveSofterEaseOut:
 		case MMMAnimationCurveSofterEaseInOut:
 			return MMMAnimationUtils_BaseCurve(time, curve, 1.25);
+		
+		case MMMAnimationCurveEaseInQuad:
+			return MMMAnimationUtils_EaseInQuad(time);
+		case MMMAnimationCurveEaseOutQuad:
+			return MMMAnimationUtils_EaseOutQuad(time);
+		case MMMAnimationCurveEaseInOutQuad:
+			return MMMAnimationUtils_EaseInOutQuad(time);
+		
+		case MMMAnimationCurveEaseInCubic:
+			return MMMAnimationUtils_EaseInCubic(time);
+		case MMMAnimationCurveEaseOutCubic:
+			return MMMAnimationUtils_EaseOutCubic(time);
+		case MMMAnimationCurveEaseInOutCubic:
+			return MMMAnimationUtils_EaseInOutCubic(time);
+		
+		case MMMAnimationCurveEaseInQuart:
+			return MMMAnimationUtils_EaseInQuart(time);
+		case MMMAnimationCurveEaseOutQuart:
+			return MMMAnimationUtils_EaseOutQuart(time);
+		case MMMAnimationCurveEaseInOutQuart:
+			return MMMAnimationUtils_EaseInOutQuart(time);
+		
+		case MMMAnimationCurveEaseInQuint:
+			return MMMAnimationUtils_EaseInQuint(time);
+		case MMMAnimationCurveEaseOutQuint:
+			return MMMAnimationUtils_EaseOutQuint(time);
+		case MMMAnimationCurveEaseInOutQuint:
+			return MMMAnimationUtils_EaseInOutQuint(time);
+		
 	}
 }
 
