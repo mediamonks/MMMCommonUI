@@ -5,7 +5,11 @@
 
 #import "MMMLayout.h"
 
+#if SWIFT_PACKAGE
+#import "MMMCommonCoreObjC.h"
+#else
 @import MMMCommonCore;
+#endif
 
 #import "MMMCommonUIMisc.h"
 #import <objc/runtime.h>

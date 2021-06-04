@@ -5,7 +5,11 @@
 
 #import "MMMKeyboard.h"
 
-#import "MMMObserverHub.h"
+#if SWIFT_PACKAGE
+#import "MMMObservablesObjC.h"
+#else
+@import MMMObservables;
+#endif
 
 @implementation MMMKeyboard {
 	MMMObserverHub<id<MMMKeyboardObserver>> *_observerHub;

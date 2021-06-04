@@ -1,6 +1,6 @@
 //
-// MMMUtil.
-// Copyright (C) 2015-2016 MediaMonks. All rights reserved.
+// MMMCommonUI. Part of MMMTemple.
+// Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

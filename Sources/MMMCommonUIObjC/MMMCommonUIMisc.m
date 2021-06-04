@@ -5,8 +5,13 @@
 
 #import "MMMCommonUIMisc.h"
 
+#if SWIFT_PACKAGE
+#import "MMMLogObjC.h"
+#import "MMMCommonCoreObjC.h"
+#else
 @import MMMLog;
 @import MMMCommonCore;
+#endif
 
 UIColor *MMMDebugColor(NSInteger index) {
 	static dispatch_once_t onceToken;

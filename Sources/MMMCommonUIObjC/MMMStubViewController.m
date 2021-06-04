@@ -7,7 +7,11 @@
 
 #import "MMMStubView.h"
 
+#if SWIFT_PACKAGE
+#import "MMMLogObjC.h"
+#else
 @import MMMLog;
+#endif
 
 /** 
  * We want the stub view controller to check if its appearance methods are called correctly, 

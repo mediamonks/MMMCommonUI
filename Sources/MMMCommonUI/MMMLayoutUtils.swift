@@ -3,6 +3,12 @@
 // Copyright (C) 2019 MediaMonks. All rights reserved.
 //
 
+import UIKit
+
+#if SWIFT_PACKAGE
+import MMMCommonUIObjC
+#endif
+
 extension MMMLayoutUtils {
 
 	/// Shortcut for `MMMLayoutUtils.centerMultiplier(forRatio: MMMLayoutUtils.inverseGolden)`.

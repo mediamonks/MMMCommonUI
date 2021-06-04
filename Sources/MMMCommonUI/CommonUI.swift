@@ -3,6 +3,8 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
+import UIKit
+
 extension UITableViewCell {
 	/// A string that can be used as a reuse identifer for this cell, currently the name of the class.
 	/// (This is for the most common use case when all cells of the same type are considered equal.)

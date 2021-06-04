@@ -3,6 +3,12 @@
 // Copyright (C) 2016-2021 MediaMonks. All rights reserved.
 //
 
+import UIKit
+
+#if SWIFT_PACKAGE
+import MMMCommonUIObjC
+#endif
+
 /// Support for simple grid layouts.
 public final class MMMGridContainer: MMMVerticalStackContainer {
 

@@ -3,7 +3,12 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
+#if SWIFT_PACKAGE
+#import "MMMLoadableObjC.h"
+#else
 @import MMMLoadable;
+#endif
+
 @import Photos;
 
 NS_ASSUME_NONNULL_BEGIN

@@ -3,6 +3,12 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
+import UIKit
+
+#if SWIFT_PACKAGE
+import MMMCommonUIObjC
+#endif
+
 /// Swift additions for `MMMStylesheet`.
 extension MMMStylesheet {
 

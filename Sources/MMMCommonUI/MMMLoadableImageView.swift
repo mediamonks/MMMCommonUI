@@ -3,7 +3,12 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+#if SWIFT_PACKAGE
+import MMMCommonUIObjC
+import MMMLoadable
+#endif
 
 /// An image view that is able to work with loadable images directly.
 public final class MMMLoadableImageView: NonStoryboardableView {

@@ -1,11 +1,15 @@
 //
-// MMMTemple.
+// MMMCommonUI. Part of MMMTemple.
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
 #import "MMMNavigation.h"
 
+#if SWIFT_PACKAGE
+#import "MMMLogObjC.h"
+#else
 @import MMMLog;
+#endif
 
 //
 //

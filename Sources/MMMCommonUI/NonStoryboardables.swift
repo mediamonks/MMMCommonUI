@@ -1,7 +1,9 @@
 //
-// MMMTemple.
-// Copyright (C) 2019 MediaMonks. All rights reserved.
+// MMMCommonUI. Part of MMMTemple.
+// Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
+
+import UIKit
 
 /// Called from those initializers required by `NSCoding` that we often don't support.
 ///

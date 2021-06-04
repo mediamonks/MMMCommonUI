@@ -3,8 +3,13 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
+#if SWIFT_PACKAGE
+#import "UIKit/UIKit.h"
+#import "MMMCommonCoreObjC.h"
+#else
 @import UIKit;
-@import MMMCommonCore; // Technically not needed in this header but then does not have to import on the use side.
+@import MMMCommonCore;
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
