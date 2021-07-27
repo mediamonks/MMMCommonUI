@@ -141,9 +141,6 @@ public final class MMMLoadableImageView: NonStoryboardableView {
 			options: [.beginFromCurrentState, .transitionCrossDissolve],
 			animations: {
 				self.imageView.image = image
-			},
-			completion: { (_) in
-				self.imageView.image = image
 			}
 		)
 	}
