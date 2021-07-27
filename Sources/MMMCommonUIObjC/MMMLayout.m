@@ -1111,19 +1111,19 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 }
 
 - (NSLayoutAttribute)leadingAttribute {
-	return (_direction == MMMLayoutDirectionHorizontal) ? NSLayoutAttributeLeft : NSLayoutAttributeTop;
+	return (_direction == MMMLayoutDirectionHorizontal) ? NSLayoutAttributeLeading : NSLayoutAttributeTop;
 }
 
 - (NSLayoutAttribute)oppositeDirectionLeadingAttribute {
-	return (_direction == MMMLayoutDirectionHorizontal) ? NSLayoutAttributeTop : NSLayoutAttributeLeft;
+	return (_direction == MMMLayoutDirectionHorizontal) ? NSLayoutAttributeTop : NSLayoutAttributeLeading;
 }
 
 - (NSLayoutAttribute)trailingAttribute {
-	return (_direction == MMMLayoutDirectionHorizontal) ? NSLayoutAttributeRight : NSLayoutAttributeBottom;
+	return (_direction == MMMLayoutDirectionHorizontal) ? NSLayoutAttributeTrailing : NSLayoutAttributeBottom;
 }
 
 - (NSLayoutAttribute)oppositeDirectionTrailingAttribute {
-	return (_direction == MMMLayoutDirectionHorizontal) ? NSLayoutAttributeBottom : NSLayoutAttributeRight;
+	return (_direction == MMMLayoutDirectionHorizontal) ? NSLayoutAttributeBottom : NSLayoutAttributeTrailing;
 }
 
 - (NSLayoutAttribute)centerAttribute {
