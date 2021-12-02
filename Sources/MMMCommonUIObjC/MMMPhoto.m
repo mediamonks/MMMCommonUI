@@ -77,7 +77,7 @@
 //
 //
 //
-@implementation WIGTestPlaceholderPhoto {
+@implementation MMMTestPlaceholderPhoto {
 	NSInteger _index;
 }
 

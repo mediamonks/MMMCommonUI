@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger, MMMPhotoContentMode) {
 @end
 
 /**
- * A regular UIImage wrapped into the WIGPhoto interface, can be handy for tests.
+ * A regular UIImage wrapped into the MMMPhoto interface, can be handy for tests.
  */
 @interface MMMPhotoFromUIImage : NSObject <MMMPhoto>
 
@@ -63,10 +63,10 @@ typedef NS_ENUM(NSInteger, MMMPhotoContentMode) {
 @end
 
 /**
- * Another implementation of WIGPhoto handy for tests: the images are downloaded from a web service hosting
- * placeholder images.
+ * Another implementation of MMMPhoto handy for tests: the images are downloaded from a web service hosting
+ * placeholder images. 
  */
-@interface WIGTestPlaceholderPhoto : NSObject <MMMPhoto>
+@interface MMMTestPlaceholderPhoto : NSObject <MMMPhoto>
 
 /** The index influences which image will be fetched, i.e. items with the same indexes should have the same picture. */
 - (instancetype)initWithIndex:(NSInteger)index NS_DESIGNATED_INITIALIZER;
