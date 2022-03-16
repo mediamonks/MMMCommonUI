@@ -15,6 +15,8 @@
 	UIImageView *_imageView;
 
 	NSLayoutConstraint *_aspectRatioConstraint;
+
+	MMMSpacerView *_baselineLayoutView;
 }
 
 - (id)init {
@@ -129,6 +131,21 @@
 	} else {
 		return CGSizeZero;
 	}
+}
+
+// Let the baseline alignment make sense for our image view.
+- (UIView *)viewForLastBaselineLayout {
+	if (!_baselineLayoutView) {
+		_baselineLayoutView = [[MMMSpacerView alloc] init];
+		[self addSubview:_baselineLayoutView];
+		[NSLayoutConstraint activateConstraint:[NSLayoutConstraint
+			constraintWithItem:_baselineLayoutView attribute:NSLayoutAttributeTop
+			relatedBy:NSLayoutRelationEqual
+			toItem:self attribute:NSLayoutAttributeBottom
+			multiplier:1 constant:0 identifier:@"MMMImageView-Baseline"
+		]];
+	}
+	return _baselineLayoutView;
 }
 
 @end
