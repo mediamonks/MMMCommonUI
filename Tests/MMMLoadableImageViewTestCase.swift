@@ -3,10 +3,17 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
-import MMMCommonUI
+@testable import MMMCommonUI
 import MMMTestCase
 
 class MMMLoadableImageViewTestCase: MMMTestCase {
+
+	public override func setUp() {
+		super.setUp()
+		self.recordMode = false
+		
+		setenv("FB_REFERENCE_IMAGE_DIR", Bundle.module.url(forResource: "TestResources", withExtension: nil)!.absoluteString.replacingOccurrences(of: "file://", with: ""), 1)
+	}
 
     private func stubImage(
     	size: CGSize,

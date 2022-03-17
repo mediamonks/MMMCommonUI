@@ -6,7 +6,7 @@
 #import "MMMLayout.h"
 
 #if SWIFT_PACKAGE
-#import "MMMCommonCoreObjC.h"
+@import MMMCommonCoreObjC;
 #else
 @import MMMCommonCore;
 #endif

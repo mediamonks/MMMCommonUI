@@ -6,8 +6,8 @@
 #import "MMMCommonUIMisc.h"
 
 #if SWIFT_PACKAGE
-#import "MMMLogObjC.h"
-#import "MMMCommonCoreObjC.h"
+@import MMMLogObjC;
+@import MMMCommonCoreObjC;
 #else
 @import MMMLog;
 @import MMMCommonCore;

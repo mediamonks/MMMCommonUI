@@ -6,7 +6,7 @@
 #import "MMMNavigation.h"
 
 #if SWIFT_PACKAGE
-#import "MMMLogObjC.h"
+@import MMMLogObjC;
 #else
 @import MMMLog;
 #endif

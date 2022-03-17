@@ -6,8 +6,8 @@
 #import "MMMPhotoLibraryLoadableImage.h"
 
 #if SWIFT_PACKAGE
-#import "MMMLoadableObjC.h"
-#import "MMMCommonCoreObjC.h"
+@import MMMLoadableObjC;
+@import MMMCommonCoreObjC;
 #else
 @import MMMCommonCore;
 #import "MMMLoadable+Subclasses.h"

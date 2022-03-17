@@ -6,7 +6,7 @@
 @import UIKit;
 
 #if SWIFT_PACKAGE
-#import "MMMLoadableObjC.h"
+@import MMMLoadableObjC;
 #else
 @import MMMLoadable;
 #endif

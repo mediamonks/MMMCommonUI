@@ -5,7 +5,7 @@
 
 #if SWIFT_PACKAGE
 #import "UIKit/UIKit.h"
-#import "MMMCommonCoreObjC.h"
+@import MMMCommonCoreObjC;
 #else
 @import UIKit;
 @import MMMCommonCore;

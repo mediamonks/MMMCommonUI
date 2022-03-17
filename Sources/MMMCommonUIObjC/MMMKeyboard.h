@@ -6,7 +6,7 @@
 #import <UIKit/UIKit.h>
 
 #if SWIFT_PACKAGE
-#import "MMMObservablesObjC.h"
+@import MMMObservablesObjC;
 #else
 @import MMMObservables;
 #endif
