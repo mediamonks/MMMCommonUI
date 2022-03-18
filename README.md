@@ -11,7 +11,7 @@ Small UI-related pieces reused in many components from MMMTemple.
 
 Podfile:
 
-```
+```ruby
 source 'https://github.com/mediamonks/MMMSpecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 ...
