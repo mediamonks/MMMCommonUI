@@ -162,6 +162,17 @@ CGFloat const MMMInverseGolden = 1 / MMMGolden;
 	return self;
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+
+	UIView *view = [super hitTest:point withEvent:event];
+
+	if (view == self) {
+		return nil;
+	} else {
+		return view;
+	}
+}
+
 @end
 
 //
