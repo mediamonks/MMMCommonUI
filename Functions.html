@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MMMCommonUI  Reference</title>
+    <title>Functions  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -14,8 +14,9 @@
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Functions" class="dashAnchor"></a>
 
-    <a title="MMMCommonUI  Reference"></a>
+    <a title="Functions  Reference"></a>
 
     <header class="header">
       <a href="https://media.monks.com">
@@ -36,7 +37,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">MMMCommonUI</a>
       <img class="carat" src="img/carat.png" alt=""/>
-      MMMCommonUI  Reference
+      Functions  Reference
     </p>
 
     <div class="content-wrapper">
@@ -290,38 +291,231 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            
-            <h1 id='mmmcommonui' class='heading'>MMMCommonUI</h1>
-
-<p><a href="https://github.com/mediamonks/MMMCommonUI/actions?query=workflow%3ABuild"><img src="https://github.com/mediamonks/MMMCommonUI/workflows/Build/badge.svg" alt="Build"></a>
-<a href="https://github.com/mediamonks/MMMCommonUI/actions?query=workflow%3ATest"><img src="https://github.com/mediamonks/MMMCommonUI/workflows/Test/badge.svg" alt="Test"></a></p>
-
-<p>Small UI-related pieces reused in many components from MMMTemple.</p>
-
-<p>(This is a part of <code>MMMTemple</code> suite of iOS libraries we use at <a href="https://www.mediamonks.com/">MediaMonks</a>.)</p>
-<h2 id='installation' class='heading'>Installation</h2>
-
-<p>Podfile:</p>
-<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/mediamonks/MMMSpecs.git'</span>
-<span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
-<span class="p">.</span><span class="nf">.</span><span class="p">.</span>
-<span class="nf">pod</span> <span class="s1">'MMMCommonUI'</span>
-</code></pre>
-
-<p>(Use &lsquo;MMMCommonUI/ObjC&rsquo; when Swift wrappers are not needed.)</p>
-
-<p>SPM:</p>
-<pre class="highlight swift"><code><span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/mediamonks/MMMCommonUI"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMajor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"3.6.1"</span><span class="p">))</span>
-</code></pre>
-<h2 id='usage' class='heading'>Usage</h2>
-
-<p>TBD</p>
-
-<hr>
+            <h1>Functions</h1>
+            <p>The following functions are available globally.</p>
 
           </div>
         </section>
 
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@F@MMMReverseAnimationCurve"></a>
+                    <a name="//apple_ref/swift/Function/MMMReverseAnimationCurve" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@F@MMMReverseAnimationCurve">MMMReverseAnimationCurve</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Animation curve opposite to the given one, e.g. EaseIn for EaseOut.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n"><a href="Enums/MMMAnimationCurve.html">MMMAnimationCurve</a></span> <span class="n">MMMReverseAnimationCurve</span><span class="p">(</span><span class="n"><a href="Enums/MMMAnimationCurve.html">MMMAnimationCurve</a></span> <span class="n">curve</span><span class="p">)</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMReverseAnimationCurve</span><span class="p">(</span><span class="n">_</span> <span class="nv">curve</span><span class="p">:</span> <span class="kt"><a href="Enums/MMMAnimationCurve.html">MMMAnimationCurve</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Enums/MMMAnimationCurve.html">MMMAnimationCurve</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMLayout.h@F@MMMCenterMultiplierForRatio"></a>
+                    <a name="//apple_ref/swift/Function/MMMCenterMultiplierForRatio" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMLayout.h@F@MMMCenterMultiplierForRatio">MMMCenterMultiplierForRatio</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Suppose you need to contrain a view so its center divides its container in certain ratio different from 1:1
+ (e.g. golden section):</p>
+
+<p>┌─────────┐ ◆
+  │         │ │
+  │         │ │ a
+  │┌───────┐│ │
+ ─│┼ ─ ─ ─ ┼│─◆   ratio = a / b
+  │└───────┘│ │
+  │         │ │
+  │         │ │
+  │         │ │ b
+  │         │ │
+  │         │ │
+  │         │ │
+  └─────────┘ ◆</p>
+
+<p>You cannot put this ratio directly into the <code>multiplier</code> parameter of the corresponding NSLayoutConstraints relating
+ the centers of the views, because the <code>multiplier</code> would be the ratio between the distance to the center
+ of the view (<code>h</code>) and the distance to the center of the container (<code>H</code>) instead:</p>
+
+<p>◆ ┌─────────┐ ◆
+   │ │         │ │
+   │ │         │ │ a = h
+ H │ │┌───────┐│ │
+   │ │├ ─ ─ ─ ┼│─◆   multiplier = h / H
+   │ │└───────┘│ │   ratio = a / b = h / (2 * H - h)
+   ◆─│─ ─ ─ ─ ─│ │
+     │         │ │
+     │         │ │ b = 2 * H - h
+     │         │ │
+     │         │ │
+     │         │ │
+     └─────────┘ ◆</p>
+
+<p>I.e. the <code>multiplier</code> is h / H (assuming the view is the first in the definition of the constraint),
+ but the ratio we are interested would be h / (2 * H - h) if expressed in the distances to centers.</p>
+
+<p>If you have a desired ratio and want to get a <code>multiplier</code>, which when applied, results in the layout dividing
+ the container in this ratio, then you can use this function as shortcut.</p>
+
+<p>Detailed calculations:
+ ratio = h / (2 * H - h)  ==&gt;  2 * H * ratio - h * ratio = h  ==&gt;  2 * H * ratio / h - ratio = 1
+ ==&gt;  1 + ratio = 2 * H * ratio / h  ==&gt;  (1 + ratio) / (2 * ratio) = H / h
+ where H / h is the inverse of our <code>multiplier</code>, so the actual multiplier is (2 * ratio) / (1 + ratio).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">static</span> <span class="kr">inline</span> <span class="n">CGFloat</span> <span class="n">MMMCenterMultiplierForRatio</span><span class="p">(</span><span class="n">CGFloat</span> <span class="n">ratio</span><span class="p">)</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">centerMultiplier</span><span class="p">(</span><span class="n">forRatio</span> <span class="nv">ratio</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMLayout.h@F@MMMLayoutAlignmentFromHorizontalAlignment"></a>
+                    <a name="//apple_ref/swift/Function/MMMLayoutAlignmentFromHorizontalAlignment" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMLayout.h@F@MMMLayoutAlignmentFromHorizontalAlignment">MMMLayoutAlignmentFromHorizontalAlignment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">static</span> <span class="kr">inline</span> <span class="n"><a href="Enums/MMMLayoutAlignment.html">MMMLayoutAlignment</a></span> <span class="nf">MMMLayoutAlignmentFromHorizontalAlignment</span><span class="p">(</span><span class="n"><a href="Enums/MMMLayoutHorizontalAlignment.html">MMMLayoutHorizontalAlignment</a></span> <span class="n">alignment</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">(</span><span class="n"><a href="Enums/MMMLayoutAlignment.html">MMMLayoutAlignment</a></span><span class="p">)</span><span class="n">alignment</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMLayoutAlignmentFromHorizontalAlignment</span><span class="p">(</span><span class="n">_</span> <span class="nv">alignment</span><span class="p">:</span> <span class="kt"><a href="Enums/MMMLayoutHorizontalAlignment.html">MMMLayoutHorizontalAlignment</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Enums/MMMLayoutAlignment.html">MMMLayoutAlignment</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMLayout.h@F@MMMLayoutAlignmentFromVerticalAlignment"></a>
+                    <a name="//apple_ref/swift/Function/MMMLayoutAlignmentFromVerticalAlignment" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMLayout.h@F@MMMLayoutAlignmentFromVerticalAlignment">MMMLayoutAlignmentFromVerticalAlignment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">static</span> <span class="kr">inline</span> <span class="n"><a href="Enums/MMMLayoutAlignment.html">MMMLayoutAlignment</a></span> <span class="nf">MMMLayoutAlignmentFromVerticalAlignment</span><span class="p">(</span><span class="n"><a href="Enums/MMMLayoutVerticalAlignment.html">MMMLayoutVerticalAlignment</a></span> <span class="n">alignment</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">(</span><span class="n"><a href="Enums/MMMLayoutAlignment.html">MMMLayoutAlignment</a></span><span class="p">)</span><span class="n">alignment</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMLayoutAlignmentFromVerticalAlignment</span><span class="p">(</span><span class="n">_</span> <span class="nv">alignment</span><span class="p">:</span> <span class="kt"><a href="Enums/MMMLayoutVerticalAlignment.html">MMMLayoutVerticalAlignment</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="Enums/MMMLayoutAlignment.html">MMMLayoutAlignment</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@F@MMMDictionaryFromUIEdgeInsets"></a>
+                    <a name="//apple_ref/swift/Function/MMMDictionaryFromUIEdgeInsets" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@F@MMMDictionaryFromUIEdgeInsets">MMMDictionaryFromUIEdgeInsets</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A dictionary built from UIEdgeInsets suitable for AutoLayout metrics.
+The dictionary will have 4 values under the keys named &ldquo;<prefix>Top&rdquo;, &ldquo;<prefix>Left&rdquo;, &ldquo;<prefix>Bottom&rdquo;, &ldquo;<prefix>Right&rdquo;.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">extern</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSNumber</span> <span class="o">*&gt;</span>
+    <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">MMMDictionaryFromUIEdgeInsets</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">prefix</span><span class="p">,</span>
+                                            <span class="n">UIEdgeInsets</span> <span class="n">insets</span><span class="p">)</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="kt">MMMDictionaryFromUIEdgeInsets</span><span class="p">(</span><span class="n">_</span> <span class="nv">prefix</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">insets</span><span class="p">:</span> <span class="kt">UIEdgeInsets</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">NSNumber</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
       </article>
     </div>

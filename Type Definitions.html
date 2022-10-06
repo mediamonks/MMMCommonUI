@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MMMCommonUI  Reference</title>
+    <title>Type Definitions  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -14,8 +14,9 @@
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Type Definitions" class="dashAnchor"></a>
 
-    <a title="MMMCommonUI  Reference"></a>
+    <a title="Type Definitions  Reference"></a>
 
     <header class="header">
       <a href="https://media.monks.com">
@@ -36,7 +37,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">MMMCommonUI</a>
       <img class="carat" src="img/carat.png" alt=""/>
-      MMMCommonUI  Reference
+      Type Definitions  Reference
     </p>
 
     <div class="content-wrapper">
@@ -290,38 +291,249 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            
-            <h1 id='mmmcommonui' class='heading'>MMMCommonUI</h1>
-
-<p><a href="https://github.com/mediamonks/MMMCommonUI/actions?query=workflow%3ABuild"><img src="https://github.com/mediamonks/MMMCommonUI/workflows/Build/badge.svg" alt="Build"></a>
-<a href="https://github.com/mediamonks/MMMCommonUI/actions?query=workflow%3ATest"><img src="https://github.com/mediamonks/MMMCommonUI/workflows/Test/badge.svg" alt="Test"></a></p>
-
-<p>Small UI-related pieces reused in many components from MMMTemple.</p>
-
-<p>(This is a part of <code>MMMTemple</code> suite of iOS libraries we use at <a href="https://www.mediamonks.com/">MediaMonks</a>.)</p>
-<h2 id='installation' class='heading'>Installation</h2>
-
-<p>Podfile:</p>
-<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/mediamonks/MMMSpecs.git'</span>
-<span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
-<span class="p">.</span><span class="nf">.</span><span class="p">.</span>
-<span class="nf">pod</span> <span class="s1">'MMMCommonUI'</span>
-</code></pre>
-
-<p>(Use &lsquo;MMMCommonUI/ObjC&rsquo; when Swift wrappers are not needed.)</p>
-
-<p>SPM:</p>
-<pre class="highlight swift"><code><span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/mediamonks/MMMCommonUI"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMajor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"3.6.1"</span><span class="p">))</span>
-</code></pre>
-<h2 id='usage' class='heading'>Usage</h2>
-
-<p>TBD</p>
-
-<hr>
+            <h1>Type Definitions</h1>
+            <p>The following type definitions are available globally.</p>
 
           </div>
         </section>
 
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMNavigation.h@T@MMMNavigationRequestId"></a>
+                    <a name="//apple_ref/swift/Type/MMMNavigationRequestId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMNavigation.h@T@MMMNavigationRequestId">MMMNavigationRequestId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="n">id</span> <span class="n">MMMNavigationRequestId</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMNavigationRequestId</span> <span class="o">=</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMNavigation.h@T@MMMNavigationCompletionBlock"></a>
+                    <a name="//apple_ref/swift/Type/MMMNavigationCompletionBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMNavigation.h@T@MMMNavigationCompletionBlock">MMMNavigationCompletionBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">MMMNavigationCompletionBlock</span><span class="p">)(</span><span class="n"><a href="Type%20Definitions.html#/c:MMMNavigation.h@T@MMMNavigationRequestId">MMMNavigationRequestId</a></span> <span class="n">requestId</span><span class="p">,</span> <span class="n">BOOL</span> <span class="n">finished</span><span class="p">)</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMNavigationCompletionBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Any</span><span class="p">,</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMNavigation.h@T@MMMNavigationHandlerId"></a>
+                    <a name="//apple_ref/swift/Type/MMMNavigationHandlerId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMNavigation.h@T@MMMNavigationHandlerId">MMMNavigationHandlerId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="n">id</span> <span class="n">MMMNavigationHandlerId</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMNavigationHandlerId</span> <span class="o">=</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMNavigationStack.h@T@MMMNavigationStackCompletion"></a>
+                    <a name="//apple_ref/swift/Type/MMMNavigationStackCompletion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMNavigationStack.h@T@MMMNavigationStackCompletion">MMMNavigationStackCompletion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">MMMNavigationStackCompletion</span><span class="p">)(</span><span class="n">BOOL</span> <span class="n">success</span><span class="p">)</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMNavigationStackCompletion</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMShadowView.h@T@MMMShadowViewSettingBlock"></a>
+                    <a name="//apple_ref/swift/Type/MMMShadowViewSettingBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMShadowView.h@T@MMMShadowViewSettingBlock">MMMShadowViewSettingBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span> <span class="n">_Nonnull</span> <span class="n">MMMShadowViewSettingBlock</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMShadowViewSettingBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/MMMShadowViewSetting.html">MMMShadowViewSetting</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMAnimations.h@T@MMMAnimatorUpdateBlock"></a>
+                    <a name="//apple_ref/swift/Type/MMMAnimatorUpdateBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMAnimations.h@T@MMMAnimatorUpdateBlock">MMMAnimatorUpdateBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called on every update cycle of MMMAnimator for the given animation item.</p>
+
+<p>The time is always within [0; 1] range here, which will correspond to the the [start; start + duration] interval of 
+ real time clock.</p>
+
+<p>Unless the item is cancelled it is guaranteed that the block will be called for 0 and 1 values.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">MMMAnimatorUpdateBlock</span><span class="p">)(</span><span class="n"><a href="Classes/MMMAnimationHandle.html">MMMAnimationHandle</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMAnimatorUpdateBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/MMMAnimationHandle.html">MMMAnimationHandle</a></span><span class="p">,</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:MMMAnimations.h@T@MMMAnimatorDoneBlock"></a>
+                    <a name="//apple_ref/swift/Type/MMMAnimatorDoneBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:MMMAnimations.h@T@MMMAnimatorDoneBlock">MMMAnimatorDoneBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the animation item has been finished.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">MMMAnimatorDoneBlock</span><span class="p">)(</span><span class="n"><a href="Classes/MMMAnimationHandle.html">MMMAnimationHandle</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span> <span class="n">BOOL</span><span class="p">)</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">MMMAnimatorDoneBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/MMMAnimationHandle.html">MMMAnimationHandle</a></span><span class="p">,</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
       </article>
     </div>
