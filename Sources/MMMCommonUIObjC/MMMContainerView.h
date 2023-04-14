@@ -5,6 +5,8 @@
 
 @import UIKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Auto Layout does not support constraints against groups of items, so this is for the cases a normal UIView is
  * typically used as a container for such a group.
@@ -19,3 +21,5 @@
 - (id)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

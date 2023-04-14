@@ -251,7 +251,7 @@ typedef NS_ENUM(NSInteger, MMMNavigationStackState) {
 	}
 }
 
-- (BOOL)controller:(UIViewController *)controller isAnscestorOf:(UIViewController *)child {
+- (BOOL)controller:(UIViewController *)controller isAncestorOf:(UIViewController *)child {
 
 	if (![child isKindOfClass:[UIViewController class]]) {
 		return controller == child;
@@ -271,7 +271,7 @@ typedef NS_ENUM(NSInteger, MMMNavigationStackState) {
 
 	for (NSInteger i = _entries.count - 1; i >= 0; i--) {
 		MMMNavigationStack_Entry *e = _entries[i];
-		if ([self controller:e.controller isAnscestorOf:controller]) {
+		if ([self controller:e.controller isAncestorOf:controller]) {
 			[e.item popAllAfterThisItemWithCompletion:completion];
 			return YES;
 		}
@@ -291,9 +291,9 @@ typedef NS_ENUM(NSInteger, MMMNavigationStackState) {
 	}
 }
 
-- (void)didPopEntry:(MMMNavigationStack_Entry *)entry successfully:(BOOL)successfuly {
+- (void)didPopEntry:(MMMNavigationStack_Entry *)entry successfully:(BOOL)successfully {
 
-	if (!successfuly) {
+	if (!successfully) {
 
 		MMM_LOG_TRACE(@"Could not pop %@, failing all pop requests", entry);
 
@@ -396,7 +396,7 @@ typedef NS_ENUM(NSInteger, MMMNavigationStackState) {
 	_state = MMMNavigationStackStateIdle;
 
 	for (MMMNavigationStack_PopRequest *r in completed) {
-		r.completion(YES);
+		r.completion(successfully);
 	}
 }
 
