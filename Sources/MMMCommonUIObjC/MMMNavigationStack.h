@@ -35,7 +35,7 @@ typedef void (^MMMNavigationStackCompletion)(BOOL success);
  * in order to return to the previous navigation step.
  *
  * Again, navigation steps are not limited to modal view controllers, there can be any entity responsible for the current
- * state of the UI which wants to clean it up properly when asked for via the correspondng delegate.
+ * state of the UI which wants to clean it up properly when asked for via the corresponding delegate.
  *
  * The optional `controller` parameter might be a view controller corresponding to the new navigation item. This can be used by
  * this controller with `popAllAfterController:completion:` method in order to cancel/pop all the navigation items added after it.
@@ -65,7 +65,7 @@ typedef void (^MMMNavigationStackCompletion)(BOOL success);
  * Should perform all the work necessary to pop the corresponding UI navigation item and must call `didPop` method
  * on the corresponding item when done.
  *
- * Note that when the delegate is asked to pop, then all the items on top of it in the stack have been popped aready,
+ * Note that when the delegate is asked to pop, then all the items on top of it in the stack have been popped already,
  * so the delegate should not ask the stack to do it. In fact asking for it and waiting for completion might freeze the popping 
  * process as pop completion callbacks are called only after all the whole popping process completes.
  */
@@ -97,7 +97,7 @@ typedef void (^MMMNavigationStackCompletion)(BOOL success);
  * Returns YES, if the request to pop was accepted for execution; NO otherwise. The latter means programmers error (such as
  * popping while another pop is in progress) and will terminate the app when assertions are enabled. 
  *
- * Note that the completion handler is executed ony if the request has been accepted.
+ * Note that the completion handler is executed only if the request has been accepted.
  */
 - (BOOL)popAllAfterThisItemWithCompletion:(MMMNavigationStackCompletion)completion;
 

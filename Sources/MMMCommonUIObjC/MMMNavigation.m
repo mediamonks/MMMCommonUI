@@ -168,10 +168,6 @@
 	return self;
 }
 
-- (void)dealloc {
-	MMM_LOG_TRACE(@"dealloc");
-}
-
 - (NSString *)debugDescription {
 	return [NSString stringWithFormat:@"<%@:%p original: %@, current: %@>", self.class, self, self.originalPath, self.path];
 }

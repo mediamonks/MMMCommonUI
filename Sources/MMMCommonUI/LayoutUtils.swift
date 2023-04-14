@@ -34,13 +34,13 @@ extension UIView {
 	 - the width of the view is limited to the given one so, let say the text does not become too wide on iPad
 	   (if `maxWidth` is `0` or negative, then it's ignored).
 	 */
-	open func mmm_addConstraintsHorizontallyCentering(_ view: UIView, minPadding: CGFloat = 0, maxWidth: CGFloat = 0) {
+	public func mmm_addConstraintsHorizontallyCentering(_ view: UIView, minPadding: CGFloat = 0, maxWidth: CGFloat = 0) {
 		self.__mmm_addConstraintsHorizontallyCentering(view, minPadding: minPadding, maxWidth: maxWidth)
 	}
 
 	/// Similar to `mmm_addConstraints(horizontallyCenteringView:minPadding:maxWidth:)` but returns constraints
 	/// without adding them.
-	open func mmm_constraintsHorizontallyCentering(_ view: UIView, minPadding: CGFloat, maxWidth: CGFloat) -> [NSLayoutConstraint] {
+	public func mmm_constraintsHorizontallyCentering(_ view: UIView, minPadding: CGFloat, maxWidth: CGFloat) -> [NSLayoutConstraint] {
 		return self.__mmm_constraintsHorizontallyCentering(view, minPadding: minPadding, maxWidth: maxWidth)
 	}
 }
