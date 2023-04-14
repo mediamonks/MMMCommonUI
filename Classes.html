@@ -85,9 +85,6 @@
                 <a class="nav-group-task-link" href="Classes/MMMCollectionView.html">MMMCollectionView</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/MMMContainerView.html">MMMContainerView</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/MMMHorizontalStackContainer.html">MMMHorizontalStackContainer</a>
               </li>
               <li class="nav-group-task">
@@ -164,9 +161,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/MMMViewWrappingCell.html">MMMViewWrappingCell</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/MMMWebView.html">MMMWebView</a>
               </li>
             </ul>
           </li>
@@ -269,7 +263,7 @@
             <a class="nav-group-name-link" href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/c:MMMLayout.h@F@MMMCenterMultiplierForRatio">MMMCenterMultiplierForRatio</a>
+                <a class="nav-group-task-link" href="Functions.html#/c:MMMLayoutUtils.h@F@MMMCenterMultiplierForRatio">MMMCenterMultiplierForRatio</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@MMMDictionaryFromUIEdgeInsets">MMMDictionaryFromUIEdgeInsets</a>
@@ -301,6 +295,78 @@
           <div class="section-content">
             <div class="task-group">
               <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MMMTableViewCell"></a>
+                    <a name="//apple_ref/swift/Class/MMMTableViewCell" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MMMTableViewCell">MMMTableViewCell</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A base for table view cells redeclareing the designated initializer into the one we typically use, 
+so subclasses do not have to.</p>
+
+                        <a href="Classes/MMMTableViewCell.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMTableViewCell</span> <span class="p">:</span> <span class="nc">UITableViewCell</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMTableViewCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MMMViewWrappingCell"></a>
+                    <a name="//apple_ref/swift/Class/MMMViewWrappingCell" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MMMViewWrappingCell">MMMViewWrappingCell</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A simple table view cell wrapping the given view. </p>
+
+<p>This is handy when you have a view already and just want to show it as one more cell.</p>
+
+<p>The view being wrapped should support Auto Layout and inflate its height properly. The cell has its <code>selectionStyle</code> 
+ set to <code>UITableViewCellSelectionStyleNone</code> as these kind of cells typically do not appear selected.</p>
+
+                        <a href="Classes/MMMViewWrappingCell.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMViewWrappingCell</span><span class="o">&lt;</span><span class="n">ViewType</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n"><a href="Classes/MMMTableViewCell.html">MMMTableViewCell</a></span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMViewWrappingCell</span><span class="o">&lt;</span><span class="kt">ViewType</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Classes/MMMTableViewCell.html">MMMTableViewCell</a></span> <span class="k">where</span> <span class="kt">ViewType</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -397,111 +463,6 @@ Note that this does not support Auto Layout, you have to manage its frame.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMScrollViewShadowView</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)MMMWebView"></a>
-                    <a name="//apple_ref/swift/Class/MMMWebView" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)MMMWebView">MMMWebView</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Web view supporting top &amp; bottom shadows.</p>
-
-                        <a href="Classes/MMMWebView.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMWebView</span> <span class="p">:</span> <span class="nc">WKWebView</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMWebView</span> <span class="p">:</span> <span class="kt">WKWebView</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)MMMTableViewCell"></a>
-                    <a name="//apple_ref/swift/Class/MMMTableViewCell" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)MMMTableViewCell">MMMTableViewCell</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A base for table view cells redeclareing the designated initializer into the one we typically use, 
-so subclasses do not have to.</p>
-
-                        <a href="Classes/MMMTableViewCell.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMTableViewCell</span> <span class="p">:</span> <span class="nc">UITableViewCell</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMTableViewCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)MMMViewWrappingCell"></a>
-                    <a name="//apple_ref/swift/Class/MMMViewWrappingCell" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)MMMViewWrappingCell">MMMViewWrappingCell</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A simple table view cell wrapping the given view. </p>
-
-<p>This is handy when you have a view already and just want to show it as one more cell.</p>
-
-<p>The view being wrapped should support Auto Layout and inflate its height properly. The cell has its <code>selectionStyle</code> 
- set to <code>UITableViewCellSelectionStyleNone</code> as these kind of cells typically do not appear selected.</p>
-
-                        <a href="Classes/MMMViewWrappingCell.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMViewWrappingCell</span><span class="o">&lt;</span><span class="n">ViewType</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n"><a href="Classes/MMMTableViewCell.html">MMMTableViewCell</a></span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMViewWrappingCell</span><span class="o">&lt;</span><span class="kt">ViewType</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Classes/MMMTableViewCell.html">MMMTableViewCell</a></span> <span class="k">where</span> <span class="kt">ViewType</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
 
                         </div>
                       </div>
@@ -983,6 +944,39 @@ with a typical scrolling.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)MMMLayoutUtils"></a>
+                    <a name="//apple_ref/swift/Class/MMMLayoutUtils" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MMMLayoutUtils">MMMLayoutUtils</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is to group a few simple layout helpers.</p>
+
+                        <a href="Classes/MMMLayoutUtils.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMLayoutUtils</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMLayoutUtils</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)MMMVelocityMeter"></a>
                     <a name="//apple_ref/swift/Class/MMMVelocityMeter" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)MMMVelocityMeter">MMMVelocityMeter</a>
@@ -1166,39 +1160,6 @@ Keep it around, otherwise the animation will be cancelled.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)MMMLayoutUtils"></a>
-                    <a name="//apple_ref/swift/Class/MMMLayoutUtils" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)MMMLayoutUtils">MMMLayoutUtils</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This is to group a few simple layout helpers.</p>
-
-                        <a href="Classes/MMMLayoutUtils.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMLayoutUtils</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMLayoutUtils</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:objc(cs)MMMSpacerView"></a>
                     <a name="//apple_ref/swift/Class/MMMSpacerView" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)MMMSpacerView">MMMSpacerView</a>
@@ -1235,42 +1196,6 @@ Unlike UIView we have translatesAutoresizingMaskIntoConstraints set to NO alread
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)MMMContainerView"></a>
-                    <a name="//apple_ref/swift/Class/MMMContainerView" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)MMMContainerView">MMMContainerView</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Auto Layout does not support constraints against groups of items, so this is for the cases a normal UIView is
-typically used as a container for such a group. 
-Unlike UIView we have translatesAutoresizingMaskIntoConstraints set to NO already.
-Also <code>MMMContainerView</code> does not intercept touches but subviews still do.</p>
-
-                        <a href="Classes/MMMContainerView.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMContainerView</span> <span class="p">:</span> <span class="nc">UIView</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMContainerView</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:objc(cs)MMMStackContainer"></a>
                     <a name="//apple_ref/swift/Class/MMMStackContainer" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)MMMStackContainer">MMMStackContainer</a>
@@ -1282,7 +1207,7 @@ Also <code>MMMContainerView</code> does not intercept touches but subviews still
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A container which lays out its subviews in certain direction one after another using fixed spacing between them.
-It also aligns all the items along the layout line acccoring to the given alignment settings.
+It also aligns all the items along the layout line according to the given alignment settings.
 Note that you must use setSubviews: method instead of feeding them one by one via <code>addSubview:</code>.
 This is kind of a <code>UIStackView</code> that we understand the internals of.</p>
 
@@ -1545,7 +1470,7 @@ Can be handy for shadow overlays, etc.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://media.monks.com" target="_blank" rel="external noopener">Media.Monks</a>. All rights reserved. (Last updated: 2022-10-06)</p>
+      <p>&copy; 2023 <a class="link" href="https://media.monks.com" target="_blank" rel="external noopener">Media.Monks</a>. All rights reserved. (Last updated: 2023-04-14)</p>
       <p></p>
     </section>
   </body>

@@ -436,483 +436,462 @@
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 121,
+      "line": 18,
       "symbol": "MMMSpacerView.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 123,
+      "line": 20,
       "symbol": "MMMSpacerView.-initWithCoder:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 124,
+      "line": 21,
       "symbol": "MMMSpacerView.-initWithFrame:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 136,
-      "symbol": "MMMContainerView.-init",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 138,
-      "symbol": "MMMContainerView.-initWithCoder:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 139,
-      "symbol": "MMMContainerView.-initWithFrame:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 154,
+      "line": 27,
       "symbol": "MMMLayoutAlignment.MMMLayoutAlignmentNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 155,
+      "line": 28,
       "symbol": "MMMLayoutAlignment.MMMLayoutAlignmentLeading",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 156,
+      "line": 29,
       "symbol": "MMMLayoutAlignment.MMMLayoutAlignmentGolden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 157,
+      "line": 30,
       "symbol": "MMMLayoutAlignment.MMMLayoutAlignmentCenter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 158,
+      "line": 31,
       "symbol": "MMMLayoutAlignment.MMMLayoutAlignmentTrailing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 159,
+      "line": 32,
       "symbol": "MMMLayoutAlignment.MMMLayoutAlignmentFill",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 162,
+      "line": 35,
       "symbol": "MMMLayoutDirection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 162,
+      "line": 35,
       "symbol": "MMMLayoutDirection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 163,
+      "line": 36,
       "symbol": "MMMLayoutDirection.MMMLayoutDirectionHorizontal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 164,
+      "line": 37,
       "symbol": "MMMLayoutDirection.MMMLayoutDirectionVertical",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 167,
+      "line": 40,
       "symbol": "MMMLayoutHorizontalAlignment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 167,
+      "line": 40,
       "symbol": "MMMLayoutHorizontalAlignment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 168,
+      "line": 41,
       "symbol": "MMMLayoutHorizontalAlignment.MMMLayoutHorizontalAlignmentNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 169,
+      "line": 42,
       "symbol": "MMMLayoutHorizontalAlignment.MMMLayoutHorizontalAlignmentLeft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 170,
+      "line": 43,
       "symbol": "MMMLayoutHorizontalAlignment.MMMLayoutHorizontalAlignmentGolden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 171,
+      "line": 44,
       "symbol": "MMMLayoutHorizontalAlignment.MMMLayoutHorizontalAlignmentCenter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 172,
+      "line": 45,
       "symbol": "MMMLayoutHorizontalAlignment.MMMLayoutHorizontalAlignmentRight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 173,
+      "line": 46,
       "symbol": "MMMLayoutHorizontalAlignment.MMMLayoutHorizontalAlignmentFill",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 176,
+      "line": 49,
       "symbol": "MMMLayoutVerticalAlignment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 176,
+      "line": 49,
       "symbol": "MMMLayoutVerticalAlignment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 177,
+      "line": 50,
       "symbol": "MMMLayoutVerticalAlignment.MMMLayoutVerticalAlignmentNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 178,
+      "line": 51,
       "symbol": "MMMLayoutVerticalAlignment.MMMLayoutVerticalAlignmentTop",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 179,
+      "line": 52,
       "symbol": "MMMLayoutVerticalAlignment.MMMLayoutVerticalAlignmentGolden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 180,
+      "line": 53,
       "symbol": "MMMLayoutVerticalAlignment.MMMLayoutVerticalAlignmentCenter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 181,
+      "line": 54,
       "symbol": "MMMLayoutVerticalAlignment.MMMLayoutVerticalAlignmentBottom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 182,
+      "line": 55,
       "symbol": "MMMLayoutVerticalAlignment.MMMLayoutVerticalAlignmentFill",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 185,
+      "line": 58,
       "symbol": "MMMLayoutAlignmentFromHorizontalAlignment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 189,
+      "line": 62,
       "symbol": "MMMLayoutAlignmentFromVerticalAlignment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.function",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 196,
+      "line": 69,
       "symbol": "UILayoutGuide(MMMTemple)",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 210,
+      "line": 83,
       "symbol": "UILayoutGuide(MMMTemple).-mmm_constraintsAligningGuide:horizontally:vertically:insets:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 256,
+      "line": 129,
       "symbol": "UIView(MMMTemple).-mmm_constraintsAligningView:horizontally:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 259,
+      "line": 132,
       "symbol": "UIView(MMMTemple).-mmm_constraintsAligningView:vertically:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 262,
+      "line": 135,
       "symbol": "UIView(MMMTemple).-mmm_constraintsAligningGuide:horizontally:vertically:insets:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 276,
+      "line": 149,
       "symbol": "UIView(MMMTemple).-mmm_addConstraintsAligningView:horizontally:vertically:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 280,
+      "line": 153,
       "symbol": "UIView(MMMTemple).-mmm_addConstraintsAligningView:horizontally:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 283,
+      "line": 156,
       "symbol": "UIView(MMMTemple).-mmm_addConstraintsAligningView:vertically:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 318,
+      "line": 191,
       "symbol": "UIView(MMMTemple).-mmm_addConstraintsForSubview:horizontalAlignment:verticalAlignment:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 343,
+      "line": 216,
       "symbol": "UIView(MMMTemple).-mmm_addVerticalSpaceRatioConstraintsForSubview:topItem:topAttribute:bottomItem:bottomAttribute:ratio:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 363,
+      "line": 236,
       "symbol": "UIView(MMMTemple).-mmm_setHorizontalCompressionResistance:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 365,
+      "line": 238,
       "symbol": "UIView(MMMTemple).-mmm_setVerticalHuggingPriority:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 366,
+      "line": 239,
       "symbol": "UIView(MMMTemple).-mmm_setHorizontalHuggingPriority:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 368,
+      "line": 241,
       "symbol": "UIView(MMMTemple).-mmm_setVerticalCompressionResistance:hugging:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 369,
+      "line": 242,
       "symbol": "UIView(MMMTemple).-mmm_setHorizontalCompressionResistance:hugging:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 371,
+      "line": 244,
       "symbol": "UIView(MMMTemple).-mmm_setCompressionResistanceHorizontal:vertical:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 374,
+      "line": 247,
       "symbol": "UIView(MMMTemple).-mmm_setHuggingHorizontal:vertical:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 381,
+      "line": 254,
       "symbol": "NSLayoutConstraint(MMMTemple)",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 426,
+      "line": 299,
       "symbol": "NSLayoutConstraint(MMMTemple).+deactivateConstraint:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 487,
+      "line": 360,
       "symbol": "MMMStackContainer.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 488,
+      "line": 361,
       "symbol": "MMMStackContainer.-initWithFrame:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 489,
+      "line": 362,
       "symbol": "MMMStackContainer.-initWithCoder:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 498,
+      "line": 371,
       "symbol": "MMMVerticalStackContainer.-initWithInsets:alignment:spacing:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 502,
+      "line": 375,
       "symbol": "MMMVerticalStackContainer.-initWithDirection:insets:alignment:spacing:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 514,
+      "line": 387,
       "symbol": "MMMHorizontalStackContainer.-initWithInsets:alignment:spacing:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 518,
+      "line": 391,
       "symbol": "MMMHorizontalStackContainer.-initWithDirection:insets:alignment:spacing:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 534,
+      "line": 407,
       "symbol": "MMMAutoLayoutIsolator.-initWithView:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 536,
+      "line": 409,
       "symbol": "MMMAutoLayoutIsolator.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 537,
+      "line": 410,
       "symbol": "MMMAutoLayoutIsolator.-initWithFrame:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 538,
+      "line": 411,
       "symbol": "MMMAutoLayoutIsolator.-initWithCoder:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 550,
+      "line": 423,
       "symbol": "MMMPaddedView.insets",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 552,
+      "line": 425,
       "symbol": "MMMPaddedView.-initWithView:insets:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 554,
+      "line": 427,
       "symbol": "MMMPaddedView.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 555,
+      "line": 428,
       "symbol": "MMMPaddedView.-initWithFrame:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMLayout.h",
-      "line": 556,
+      "line": 429,
       "symbol": "MMMPaddedView.-initWithCoder:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
@@ -1059,13 +1038,6 @@
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 18,
-      "symbol": "MMMScrollViewShadows.-initWithScrollView:settings:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
       "line": 21,
       "symbol": "MMMScrollViewShadows.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
@@ -1082,20 +1054,6 @@
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
       "line": 21,
       "symbol": "MMMScrollViewShadows.-init",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 21,
-      "symbol": "MMMScrollViewShadows.-init",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 78,
-      "symbol": "MMMScrollViewShadowsSettings.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
@@ -1145,20 +1103,6 @@
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
       "line": 84,
       "symbol": "MMMScrollViewShadowAlignment",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 84,
-      "symbol": "MMMScrollViewShadowAlignment",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 84,
-      "symbol": "MMMScrollViewShadowAlignment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
@@ -1194,20 +1138,6 @@
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
       "line": 85,
       "symbol": "MMMScrollViewShadowAlignment.MMMScrollViewShadowAlignmentTop",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 85,
-      "symbol": "MMMScrollViewShadowAlignment.MMMScrollViewShadowAlignmentTop",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 86,
-      "symbol": "MMMScrollViewShadowAlignment.MMMScrollViewShadowAlignmentBottom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
@@ -1255,20 +1185,6 @@
     },
     {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 94,
-      "symbol": "MMMScrollViewShadowView.-initWithAlignment:settings:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 97,
-      "symbol": "MMMScrollViewShadowView.-init",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
       "line": 97,
       "symbol": "MMMScrollViewShadowView.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
@@ -1306,20 +1222,6 @@
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
       "line": 98,
       "symbol": "MMMScrollViewShadowView.-initWithCoder:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 98,
-      "symbol": "MMMScrollViewShadowView.-initWithCoder:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMScrollViewShadows.h",
-      "line": 99,
-      "symbol": "MMMScrollViewShadowView.-initWithFrame:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
@@ -1642,48 +1544,6 @@
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMViewWrappingCell.h",
       "line": 26,
       "symbol": "MMMViewWrappingCell.-initWithReuseIdentifier:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMWebView.h",
-      "line": 18,
-      "symbol": "MMMWebView.-initWithSettings:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMWebView.h",
-      "line": 19,
-      "symbol": "MMMWebView.-initWithSettings:configuration:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMWebView.h",
-      "line": 21,
-      "symbol": "MMMWebView.-initWithCoder:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMWebView.h",
-      "line": 22,
-      "symbol": "MMMWebView.-initWithFrame:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMWebView.h",
-      "line": 23,
-      "symbol": "MMMWebView.-initWithFrame:configuration:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMWebView.h",
-      "line": 24,
-      "symbol": "MMMWebView.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     }
