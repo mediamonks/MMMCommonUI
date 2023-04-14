@@ -3,11 +3,11 @@
 // Copyright (C) 2016-2020 MediaMonks. All rights reserved.
 //
 
+@import UIKit;
+
 #if SWIFT_PACKAGE
-#import "UIKit/UIKit.h"
 @import MMMCommonCoreObjC;
 #else
-@import UIKit;
 @import MMMCommonCore;
 #endif
 

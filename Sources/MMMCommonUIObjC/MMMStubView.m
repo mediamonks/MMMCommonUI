@@ -6,7 +6,7 @@
 #import "MMMStubView.h"
 
 #import "MMMCommonUIMisc.h"
-#import "MMMLayout.h"
+#import "MMMLayoutUtils.h"
 
 @implementation MMMStubView {
 	UILabel *_label;
