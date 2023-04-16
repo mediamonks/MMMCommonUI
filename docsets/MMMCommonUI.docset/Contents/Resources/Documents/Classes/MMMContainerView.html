@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MMMScrollViewShadowAlignment Enumeration Reference</title>
+    <title>MMMContainerView Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Enum/MMMScrollViewShadowAlignment" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/MMMContainerView" class="dashAnchor"></a>
 
-    <a title="MMMScrollViewShadowAlignment Enumeration Reference"></a>
+    <a title="MMMContainerView Class Reference"></a>
 
     <header class="header">
       <a href="https://media.monks.com">
@@ -37,7 +37,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">MMMCommonUI</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      MMMScrollViewShadowAlignment Enumeration Reference
+      MMMContainerView Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -288,23 +288,23 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>MMMScrollViewShadowAlignment</h1>
+            <h1>MMMContainerView</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">MMMScrollViewShadowAlignment</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">MMMScrollViewShadowAlignmentTop</span><span class="p">,</span>
-	<span class="n">MMMScrollViewShadowAlignmentBottom</span>
-<span class="p">}</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MMMContainerView</span> <span class="p">:</span> <span class="nc">UIView</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">MMMScrollViewShadowAlignment</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kd">@unchecked</span> <span class="kt">Sendable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MMMContainerView</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Auto Layout does not support constraints against groups of items, so this is for the cases a normal UIView is
+typically used as a container for such a group.
+Unlike UIView we have translatesAutoresizingMaskIntoConstraints set to NO already.
+Also <code>MMMContainerView</code> does not intercept touches but subviews still do.</p>
 
           </div>
         </section>
@@ -316,9 +316,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@MMMScrollViewShadowAlignment@MMMScrollViewShadowAlignmentTop"></a>
-                    <a name="//apple_ref/swift/Case/MMMScrollViewShadowAlignmentTop" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@MMMScrollViewShadowAlignment@MMMScrollViewShadowAlignmentTop">MMMScrollViewShadowAlignmentTop</a>
+                    <a name="/c:objc(cs)MMMContainerView(im)init"></a>
+                    <a name="//apple_ref/swift/Method/-init" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MMMContainerView(im)init">-init</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -333,12 +333,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">MMMScrollViewShadowAlignmentTop</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="n">init</span> <span class="n">NS_DESIGNATED_INITIALIZER</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">top</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -348,15 +348,19 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@MMMScrollViewShadowAlignment@MMMScrollViewShadowAlignmentBottom"></a>
-                    <a name="//apple_ref/swift/Case/MMMScrollViewShadowAlignmentBottom" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@MMMScrollViewShadowAlignment@MMMScrollViewShadowAlignmentBottom">MMMScrollViewShadowAlignmentBottom</a>
+                    <a name="/c:objc(cs)MMMContainerView(im)initWithCoder:"></a>
+                    <a name="//apple_ref/swift/Method/-initWithCoder:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)MMMContainerView(im)initWithCoder:">-initWithCoder:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
                       <div class="abstract">
                         <p>Undocumented</p>
 
@@ -365,12 +369,38 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">MMMScrollViewShadowAlignmentBottom</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithCoder</span><span class="p">:(</span><span class="n">NSCoder</span> <span class="o">*</span><span class="p">)</span><span class="nv">aDecoder</span> <span class="n">NS_UNAVAILABLE</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MMMContainerView(im)initWithFrame:"></a>
+                    <a name="//apple_ref/swift/Method/-initWithFrame:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)MMMContainerView(im)initWithFrame:">-initWithFrame:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-unavailable">
+                        <p class="aside-title">Unavailable</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">bottom</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithFrame</span><span class="p">:(</span><span class="n">CGRect</span><span class="p">)</span><span class="nv">frame</span> <span class="n">NS_UNAVAILABLE</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>

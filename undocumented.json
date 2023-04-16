@@ -393,6 +393,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMContainerView.h",
+      "line": 18,
+      "symbol": "MMMContainerView.-init",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMContainerView.h",
+      "line": 20,
+      "symbol": "MMMContainerView.-initWithCoder:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMContainerView.h",
+      "line": 21,
+      "symbol": "MMMContainerView.-initWithFrame:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/runner/work/MMMCommonUI/MMMCommonUI/Sources/MMMCommonUIObjC/MMMImageView.h",
       "line": 19,
       "symbol": "MMMImageView.image",
