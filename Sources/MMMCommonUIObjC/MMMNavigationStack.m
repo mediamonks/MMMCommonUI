@@ -389,6 +389,11 @@ typedef NS_ENUM(NSInteger, MMMNavigationStackState) {
 
 - (void)didFinishPoppingAllSuccessfully:(BOOL)successfully {
 
+	if (_state == MMMNavigationStackStateIdle) {
+		// Fine, perhaps one of the extra scheduled `resumePopping` calls?
+		return;
+	}
+
 	// All pop requests completed. Let's call completion handlers.
 	NSArray *completed = [_completedPopRequests copy];
 	[_completedPopRequests removeAllObjects];
