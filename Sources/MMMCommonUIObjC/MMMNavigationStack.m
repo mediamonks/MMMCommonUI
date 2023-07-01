@@ -11,6 +11,8 @@
 @import MMMLog;
 #endif
 
+@import MMMCommonCore;
+
 @class MMMNavigationStack_Item;
 
 /** 
@@ -69,11 +71,11 @@
 }
 
 - (NSString *)debugDescription {
-	return [NSString stringWithFormat:@"<%@:%p '%@' (%@, presented by %@)>", self.class, self, _name, _controller, _delegate];
+	return [NSString stringWithFormat:@"<%@:%p '%@' (%@, managed by %@)>", self.class, self, _name, _controller, _delegate];
 }
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"'%@' (%@ via %@)", _name, [_controller class], [_delegate class]];
+	return [NSString stringWithFormat:@"'%@' (%@ managed by %@)", _name, [MMMCommonCoreHelpers typeName:_controller], [MMMCommonCoreHelpers typeName:_delegate]];
 }
 
 - (void)markAsRemoved {
