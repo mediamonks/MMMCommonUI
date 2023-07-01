@@ -11,6 +11,8 @@
 @import MMMLog;
 #endif
 
+@import MMMCommonCore;
+
 //
 //
 //
@@ -337,7 +339,7 @@
 	if ([handler conformsToProtocol:@protocol(MMMNavigationHandler)] && [handler performNavigationRequest:_currentRequest]) {
 
 		_currentHandler = handler;
-		MMM_LOG_TRACE(@"The request is continued by %@", _currentHandler);
+		MMM_LOG_TRACE(@"The request is continued by %@", [MMMCommonCoreHelpers typeName:_currentHandler]);
 
 	} else {
 
