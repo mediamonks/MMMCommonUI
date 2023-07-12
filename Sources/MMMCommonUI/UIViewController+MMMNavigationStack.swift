@@ -56,10 +56,7 @@ extension UIViewController {
 		present(viewController, animated: animated, completion: completion)
 
 		// Assuming that `presentingViewController` is set after the above call.
-		guard let presentingViewController = viewController.presentingViewController else {
-			assertionFailure("Could not present \(MMMTypeName(viewController)) via \(MMMTypeName(self))?")
-			return nil
-		}
+		let presentingViewController = viewController.presentingViewController ?? self
 
 		return MMMNavigationStackHelper.instanceFor(presentingViewController).push(
 			viewController: viewController,
