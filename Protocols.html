@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MMMCommonUI  Reference</title>
+    <title>Protocols  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -14,8 +14,9 @@
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Protocols" class="dashAnchor"></a>
 
-    <a title="MMMCommonUI  Reference"></a>
+    <a title="Protocols  Reference"></a>
 
     <header class="header">
       <a href="https://media.monks.com">
@@ -36,7 +37,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">MMMCommonUI</a>
       <img class="carat" src="img/carat.png" alt=""/>
-      MMMCommonUI  Reference
+      Protocols  Reference
     </p>
 
     <div class="content-wrapper">
@@ -287,38 +288,197 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            
-            <h1 id='mmmcommonui' class='heading'>MMMCommonUI</h1>
-
-<p><a href="https://github.com/mediamonks/MMMCommonUI/actions?query=workflow%3ABuild"><img src="https://github.com/mediamonks/MMMCommonUI/workflows/Build/badge.svg" alt="Build"></a>
-<a href="https://github.com/mediamonks/MMMCommonUI/actions?query=workflow%3ATest"><img src="https://github.com/mediamonks/MMMCommonUI/workflows/Test/badge.svg" alt="Test"></a></p>
-
-<p>Small UI-related pieces reused in many components from MMMTemple.</p>
-
-<p>(This is a part of <code>MMMTemple</code> suite of iOS libraries we use at <a href="https://www.mediamonks.com/">MediaMonks</a>.)</p>
-<h2 id='installation' class='heading'>Installation</h2>
-
-<p>Podfile:</p>
-<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/mediamonks/MMMSpecs.git'</span>
-<span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
-<span class="p">.</span><span class="nf">.</span><span class="p">.</span>
-<span class="nf">pod</span> <span class="s1">'MMMCommonUI'</span>
-</code></pre>
-
-<p>(Use &lsquo;MMMCommonUI/ObjC&rsquo; when Swift wrappers are not needed.)</p>
-
-<p>SPM:</p>
-<pre class="highlight swift"><code><span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/mediamonks/MMMCommonUI"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMajor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"3.6.1"</span><span class="p">))</span>
-</code></pre>
-<h2 id='usage' class='heading'>Usage</h2>
-
-<p>TBD</p>
-
-<hr>
+            <h1>Protocols</h1>
+            <p>The following protocols are available globally.</p>
 
           </div>
         </section>
 
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)MMMNavigationHandler"></a>
+                    <a name="//apple_ref/swift/Protocol/MMMNavigationHandler" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)MMMNavigationHandler">MMMNavigationHandler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Protocol for entities able to fulfill in-app navigation requests.</p>
+
+                        <a href="Protocols/MMMNavigationHandler.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">MMMNavigationHandler</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">MMMNavigationHandler</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)MMMNavigationStackItemDelegate"></a>
+                    <a name="//apple_ref/swift/Protocol/MMMNavigationStackItemDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)MMMNavigationStackItemDelegate">MMMNavigationStackItemDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the delegate corresponding to each navigation item in the stack.
+Its main purpose is to be able to handle popping of the corresponding navigation item.</p>
+
+                        <a href="Protocols/MMMNavigationStackItemDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">MMMNavigationStackItemDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">MMMNavigationStackItemDelegate</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)MMMNavigationStackItem"></a>
+                    <a name="//apple_ref/swift/Protocol/MMMNavigationStackItem" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)MMMNavigationStackItem">MMMNavigationStackItem</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A token corresponding to a single node (item) of the current UI navigation path.
+Note that a reference to the token must be stored somewhere or the corresponding item will be popped right away.</p>
+
+                        <a href="Protocols/MMMNavigationStackItem.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">MMMNavigationStackItem</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">MMMNavigationStackItem</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)MMMPreferredSizeChanges"></a>
+                    <a name="//apple_ref/swift/Protocol/MMMPreferredSizeChanges" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)MMMPreferredSizeChanges">MMMPreferredSizeChanges</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A view supporting this will be notified when one of the child views indicates potential changes in its contents
+that might influence its size via <code>mmm_setPreferredSizeCouldChange</code>.</p>
+
+<p>This is handy with views that do not fully rely on Auto Layout, like UITableView,
+where a change in the size of a cell would require it to reload this cell.</p>
+
+<p>The implementation is responsible for coalescing notification and avoiding notification loops.</p>
+
+                        <a href="Protocols/MMMPreferredSizeChanges.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">MMMPreferredSizeChanges</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">MMMPreferredSizeChanges</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)MMMStylesheetConverter"></a>
+                    <a name="//apple_ref/swift/Protocol/MMMStylesheetConverter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)MMMStylesheetConverter">MMMStylesheetConverter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Something that converts dimensions given for one size class (e.g. font sizes from the design made for iPhone 6)
+ into dimensions for another size class (e.g. font size for iPhone 5 that were not explicitely mentioned in the design).</p>
+
+<p>Different converters can be used for different kinds of values. For example, it might make sense to scale paddings
+ proportionally to screen widths, but keep font sizes the same.</p>
+
+                        <a href="Protocols/MMMStylesheetConverter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">MMMStylesheetConverter</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">MMMStylesheetConverter</span> <span class="p">:</span> <span class="kt">NSObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
       </article>
     </div>
