@@ -41,6 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The base shadow color is black with this amount of transparency applied to it. */
 @property (nonatomic, readwrite) CGFloat shadowAlpha;
 
+/** The base shadow color, ensure this is an RGB color. Note that the alpha channel is ignored, use ``shadowAlpha`` instead.  */
+@property (nonatomic, readwrite) UIColor *shadowColor;
+
 /**
  * The value between 0 and 1 telling how close to an elliptical curve the shadow's border should be.
  *

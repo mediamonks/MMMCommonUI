@@ -16,7 +16,9 @@
 - (id)init {
 
 	if (self = [super init]) {
-
+		
+		_shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+		
 		_shadowAlpha = .3;
 		_shadowCurvature = 0.5;
 
@@ -35,7 +37,8 @@
 - (id)copyWithZone:(NSZone *)zone {
 
 	MMMScrollViewShadowsSettings *result = [[MMMScrollViewShadowsSettings alloc] init];
-
+	
+	result.shadowColor = self.shadowColor;
 	result.shadowAlpha = self.shadowAlpha;
 	result.shadowCurvature = self.shadowCurvature;
 
@@ -84,16 +87,20 @@
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 
 	const CGFloat shadowAlpha = _settings.shadowAlpha;
-
+	
+	CGFloat red, green, blue;
+	
+	[_settings.shadowColor getRed:&red green:&green blue:&blue alpha:nil];
+	
 	NSInteger numberOfSteps = MAX(8, MIN(b.size.height * 2, 24));
 	CGFloat *colors = alloca(4 * sizeof(CGFloat) * numberOfSteps);
 	CGFloat *steps = alloca(sizeof(CGFloat) * numberOfSteps);
 	for (NSInteger i = 0; i < numberOfSteps; i++) {
 		CGFloat t = (CGFloat)i / (numberOfSteps - 1);
 		steps[i] = t;
-		colors[i * 4 + 0] = 0;
-		colors[i * 4 + 1] = 0;
-		colors[i * 4 + 2] = 0;
+		colors[i * 4 + 0] = red;
+		colors[i * 4 + 1] = green;
+		colors[i * 4 + 2] = blue;
 		colors[i * 4 + 3] = powf(
 			[MMMAnimation
 				interpolateFrom:shadowAlpha to:0
