@@ -990,9 +990,8 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 	return self;
 }
 
-- (void)addSubview:(UIView *)view {
-	NSAssert(NO, @"%@ allows to set subviews via %s only", self.class, sel_getName(@selector(setSubviews:)));
-}
+// We used to assert in 'addSubview()' here, however system sometimes can install temporary subviews, like
+// when editing text fields on iOS 17.
 
 /** Potentially can replace this with a predicate, so different spacings can be set between items of different kinds. */
 - (CGFloat)spacingBetweenItem:(UIView *)item1 andItem:(UIView *)item2 {
