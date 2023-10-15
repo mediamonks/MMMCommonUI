@@ -68,8 +68,13 @@ typedef NS_ENUM(NSInteger, MMMPhotoContentMode) {
  */
 @interface MMMTestPlaceholderPhoto : NSObject <MMMPhoto>
 
-/** The index influences which image will be fetched, i.e. items with the same indexes should have the same picture. */
-- (instancetype)initWithIndex:(NSInteger)index NS_DESIGNATED_INITIALIZER;
+/**
+ * The `index` selects the image, i.e. items with the same indices should have the same picture.
+ * The `keyword` allows to search for images that fit your app better than "kittens" (default keyword).
+ */
+- (instancetype)initWithIndex:(NSInteger)index keyword:(NSString *)keyword NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithIndex:(NSInteger)index;
 
 - (instancetype)init NS_UNAVAILABLE;
 

@@ -7,6 +7,7 @@
 
 #import "MMMPhotoLibraryLoadableImage.h"
 @import Photos;
+@import MMMCommonCore;
 
 //
 //
@@ -79,19 +80,30 @@
 //
 @implementation MMMTestPlaceholderPhoto {
 	NSInteger _index;
+	NSString *_keyword;
 }
 
 - (instancetype)initWithIndex:(NSInteger)index {
+	return [self initWithIndex:index keyword:@"kitten"]; // This was the default on the service.
+}
+
+- (instancetype)initWithIndex:(NSInteger)index keyword:(NSString *)keyword {
 
     if (self = [super init]) {
     	_index = index;
+    	_keyword = keyword;
     }
 
     return self;
 }
 
 - (id<MMMLoadableImage>)imageForTargetSize:(CGSize)targetSize contentMode:(MMMPhotoContentMode)contentMode {
-	NSString *url = [NSString stringWithFormat:@"https://loremflickr.com/%li/%li?lock=%li", (long)targetSize.width, (long)targetSize.height, (long)_index];
+	NSString *url = [NSString
+		stringWithFormat:@"https://loremflickr.com/%li/%li/%@?lock=%li",
+		(long)targetSize.width, (long)targetSize.height,
+		MMMQueryStringFromParametersEscape(_keyword),
+		(long)_index
+	];
 	return [[MMMPublicLoadableImage alloc] initWithURL:[NSURL URLWithString:url]];
 }
 
