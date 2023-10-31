@@ -1161,6 +1161,16 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 	}
 }
 
+// Just like other containers, this should be passing taps through.
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+	UIView *view = [super hitTest:point withEvent:event];
+	if (view == self) {
+		return nil;
+	} else {
+		return view;
+	}
+}
+
 @end
 
 //
