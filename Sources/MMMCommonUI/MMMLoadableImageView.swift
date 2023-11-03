@@ -69,6 +69,7 @@ public final class MMMLoadableImageView: NonStoryboardableView {
 		super.init()
 
 		self.clipsToBounds = (mode == .fill)
+		self.isUserInteractionEnabled = false
 
 		addSubview(imageView)
 

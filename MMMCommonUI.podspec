@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
 	s.name = "MMMCommonUI"
-	s.version = "3.11.1"
+	s.version = "3.11.2"
 	s.summary = "Small UI-related pieces reused in many components from MMMTemple"
 	s.description =	"#{s.summary}."
 	s.homepage = "https://github.com/mediamonks/#{s.name}"
