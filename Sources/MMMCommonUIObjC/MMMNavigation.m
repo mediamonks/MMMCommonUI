@@ -276,7 +276,7 @@
 	}
 
 	if ([_requestQueue count] == 0) {
-		MMM_LOG_TRACE(@"No more pending navigation requests");
+		MMM_LOG_TRACE(@"No more navigation requests");
 		return;
 	}
 	
@@ -292,12 +292,12 @@
 	_currentRequest = [_requestQueue firstObject];
 	[_requestQueue removeObjectAtIndex:0];
 
-	MMM_LOG_TRACE(@"Will be executing %@", _currentRequest);
+	MMM_LOG_TRACE(@"Handling %@", _currentRequest);
 
 	for (MMMNavigationHandlerInfo *handlerInfo in _handlers) {
 		_currentHandler = handlerInfo.handler;
 		if ([_currentHandler performNavigationRequest:_currentRequest]) {
-			MMM_LOG_TRACE(@"The current request was accepted by %@", _currentHandler);
+			MMM_LOG_TRACE(@"The request was accepted/performed by %@", _currentHandler);
 			return;
 		}
 	}
@@ -313,7 +313,12 @@
 - (void)didFinishRequest:(MMMNavigationRequest *)request successfully:(BOOL)successfully {
 
 	NSAssert([NSThread isMainThread], @"");
-	NSAssert(request == _currentRequest, @"");
+
+	if (request != _currentRequest) {
+		// Are you calling it twice?
+		MMM_LOG_ERROR(@"Ignoring an attempt to finish a non-current %@", request);
+		return;
+	}
 
 	MMMNavigationCompletionBlock completionBlock = _currentRequest.completion;
 
@@ -334,23 +339,29 @@
 - (void)continueRequest:(MMMNavigationRequest *)request path:(MMMNavigationPath *)path handler:(id<MMMNavigationHandler>)handler {
 
 	NSAssert([NSThread isMainThread], @"");
-	NSAssert(request == _currentRequest, @"");
 
+	if (request != _currentRequest) {
+		// Did you mark the request as finished before continuing the request?
+		MMM_LOG_TRACE(@"Ignoring an attempt to continue a non-current %@", request);
+		return;
+	}
+
+	NSString *name = [MMMCommonCoreHelpers typeName:handler];
+	_currentHandler = handler;
+	MMM_LOG_TRACE(@"The request will be continued by %@", name);
 	if ([handler conformsToProtocol:@protocol(MMMNavigationHandler)] && [handler performNavigationRequest:_currentRequest]) {
-
-		_currentHandler = handler;
-		MMM_LOG_TRACE(@"The request is continued by %@", [MMMCommonCoreHelpers typeName:_currentHandler]);
-
+		// The handler has accepted it, but not tracing as it could have marked the request as finished in that call.
 	} else {
-
-		if ([path.hops count] == 0) {
-
-			MMM_LOG_TRACE(@"All hops are handled");
-			[self didFinishRequest:_currentRequest successfully:YES];
-
+		if (request == _currentRequest) {
+			if ([path.hops count] == 0) {
+				MMM_LOG_TRACE(@"%@ has not accept it, but all hops are handled, so assuming it's completed", name);
+				[self didFinishRequest:_currentRequest successfully:YES];
+			} else {
+				MMM_LOG_ERROR(@"Cannot finish the current request: remaining hops (%@) cannot be continued by %@", request.path, handler);
+				[self didFinishRequest:_currentRequest successfully:NO];
+			}
 		} else {
-			MMM_LOG_ERROR(@"Cannot finish the current request (have some more hops, %@, but they cannot be continued by %@)", request.path, handler);
-			[self didFinishRequest:_currentRequest successfully:NO];
+			// The handler has not accepted it, but it looks like the request was marked as failed as well.
 		}
 	}
 }
