@@ -73,7 +73,7 @@ void MMMDrawBorder(CGRect r, UIRectEdge edge, UIColor *color, CGFloat width) {
 	CGContextStrokePath(c);
 }
 
-CGFloat MMMPixelScale() {
+CGFloat MMMPixelScale(void) {
 	static CGFloat scale = 1;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -338,7 +338,7 @@ CGFloat MMMHeightOfAreaCoveredByStatusBar(UIView *view, CGRect rect) {
 	// This is to work around the problem with UI rotations: it is possible that the status bar is still portrait
 	// while the view is already landscape, and it can also be hidden (zero height);
 	// in this case the height calculated as below will be large and will cause layout issues.
-	// Returning 0 now assumming that the view using this function will eventually recalculate the status bar height
+	// Returning 0 now assuming that the view using this function will eventually recalculate the status bar height
 	// in response to UIApplicationDidChangeStatusBarFrameNotification.
 	if (CGRectGetHeight(statusBarRect) <= 0 || CGRectGetHeight(statusBarRect) > CGRectGetWidth(statusBarRect))
 		return 0;
@@ -465,7 +465,7 @@ CGFloat MMMHeightOfAreaCoveredByStatusBar(UIView *view, CGRect rect) {
 }
 
 + (UIImage *)mmm_imageFromPDFNamed:(NSString *)name tintColor:(UIColor *)tintColor {
-	return [self mmm_cacheKeyForNamed:name height:0 tintColor:tintColor];
+	return [self mmm_imageFromPDFNamed:name rasterizedForHeight:0 tintColor:tintColor];
 }
 
 + (UIImage *)mmm_imageFromPDFNamed:(NSString *)name rasterizedForHeight:(CGFloat)height {

@@ -266,7 +266,7 @@ extern NSAttributedStringKey const MMMCaseTransformAttributeName NS_SWIFT_NAME(c
  * specified view. It's always greater than or equal to zero.
  * It can be used to manually adjust the insets of a scroll view which is covered by the status bar.
  */
-extern CGFloat MMMHeightOfAreaCoveredByStatusBar(UIView *view, CGRect rect);
+extern CGFloat MMMHeightOfAreaCoveredByStatusBar(UIView *view, CGRect rect) DEPRECATED_ATTRIBUTE;
 
 //
 //
@@ -349,7 +349,7 @@ extern CGFloat MMMPhaseForDashedPattern(CGFloat lineLength, CGFloat dashLength, 
 extern void MMMAddDashedCircle(CGPoint center, CGFloat radius, CGFloat dashLength, CGFloat skipLength);
 
 /** YES, if running under Fastlane's Snapshot tool. */
-static inline BOOL MMMIsRunningUnderFastlane() {
+static inline BOOL MMMIsRunningUnderFastlane(void) {
 
 #if DEBUG
 

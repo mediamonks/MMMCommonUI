@@ -215,7 +215,7 @@ private class MMMNavigationStackHelper: NSObject, MMMNavigationStackItemDelegate
 				// The record is already removed as part of the pop request, nothing to do here.
 				return
 			} else {
-				MMMLogError(self, "Trying to remove a record for a \(MMMTypeName(viewController)) while popping a different instance (\(MMMTypeName(recordPoppingNow.viewController)))")
+				MMMLogError(self, "Trying to remove a record for a \(MMMTypeName(viewController)) while popping a different instance (\(MMMTypeName(recordPoppingNow.viewController as Any)))")
 				assertionFailure()
 				// It would be a weird case, but let it continue in production.
 			}
