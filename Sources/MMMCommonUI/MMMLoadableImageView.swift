@@ -34,9 +34,6 @@ public final class MMMLoadableImageView: NonStoryboardableView {
 	/// Note that in case of the `.fill` mode the bounds of this view might reside outside of the receiver's bounds.
 	public var alignmentView: UIView { imageView }
 
-	// No reason to open this for changes at any time.
-	private let placeholderImage: UIImage?
-
 	private var imageObserver: MMMLoadableObserver?
 
 	/// A loadable image this image view should display and track. Just set and forget.
@@ -58,13 +55,30 @@ public final class MMMLoadableImageView: NonStoryboardableView {
 		}
 	}
 
-	// MARK: Init
+	/// A version of the initializer allowing one placeholder for both cases for compatibility
+	/// with the existing code.
+	///
+	/// - Parameters:
+	///   - placeholderImage: An image to use while `image` has no contents or is not set.
+	public convenience init(placeholderImage: UIImage? = nil, mode: Mode = .fit) {
+		self.init(syncingPlaceholder: placeholderImage, failedPlaceholder: placeholderImage, mode: mode)
+	}
 
-	// TODO: visually distinguish between 'loading' and 'failed to load' states, e.g. by using two placeholders or possibly using "shimmer"-kind animation.
-	// TODO: this is where effects like shadows and corners can be added as well.
-	public init(placeholderImage: UIImage? = nil, mode: Mode = .fit) {
+	private let syncingPlaceholder: UIImage?
+	private let failedPlaceholder: UIImage?
+	
+	/// - Parameters:
+	///   - syncingPlaceholder: A placeholder to use when `image` has no contents (or is not set)
+	///     and is either `.idle` or `.syncing`.
+	///   - failedPlaceholder: An placeholder to use when `image` has failed loading.
+	public init(
+		syncingPlaceholder: UIImage? = nil,
+		failedPlaceholder: UIImage? = nil,
+		mode: Mode = .fit
+	) {
 
-		self.placeholderImage = placeholderImage
+		self.syncingPlaceholder = syncingPlaceholder
+		self.failedPlaceholder = failedPlaceholder
 
 		super.init()
 
@@ -123,16 +137,21 @@ public final class MMMLoadableImageView: NonStoryboardableView {
 	private func update(animated: Bool) {
 
 		guard let loadableImage = image else {
-			imageView.image = placeholderImage
+			imageView.image = syncingPlaceholder
 			return
 		}
 
 		if loadableImage.isContentsAvailable {
 			updateImage(with: loadableImage.image, animated: animated)
 		} else {
-			assert(loadableImage.loadableState == .syncing || loadableImage.loadableState == .didFailToSync)
-			// TODO: currently we don't distinguish between loading and failed here, but would be better to so.
-			updateImage(with: placeholderImage)
+			switch loadableImage.loadableState {
+			case .idle, .syncing:
+				updateImage(with: syncingPlaceholder)
+			case .didFailToSync, .didSyncSuccessfully:
+				updateImage(with: failedPlaceholder)
+				// We expect `isContentsAvailable` to be true in this case.
+				assert(loadableImage.loadableState != .didSyncSuccessfully)
+			}
 		}
 	}
 	
