@@ -11,8 +11,6 @@ class MMMLoadableImageViewTestCase: MMMTestCase {
 	public override func setUp() {
 		super.setUp()
 		self.recordMode = false
-		
-		setenv("FB_REFERENCE_IMAGE_DIR", Bundle.module.url(forResource: "TestResources", withExtension: nil)!.absoluteString.replacingOccurrences(of: "file://", with: ""), 1)
 	}
 
     private func stubImage(

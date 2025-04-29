@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
 	s.subspec 'ObjC' do |ss|
 		ss.source_files = [ "Sources/#{s.name}ObjC/*.{h,m}" ]
-		ss.dependency 'MMMCommonCore', '~> 1.15'
+		ss.dependency 'MMMCommonCore'
 		ss.dependency 'MMMLoadable/ObjC'
 		ss.dependency 'MMMLog/ObjC'
 		ss.dependency 'MMMObservables/ObjC'
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
 	s.subspec 'Swift' do |ss|
 		ss.source_files = [ "Sources/#{s.name}/*.swift" ]
 		ss.dependency "#{s.name}/ObjC"
-		ss.dependency 'MMMCommonCore', '~> 1.15'
+		ss.dependency 'MMMCommonCore'
 		ss.dependency 'MMMLoadable'
 		ss.dependency 'MMMLog'
 		ss.dependency 'MMMObservables'
@@ -41,6 +41,8 @@ Pod::Spec.new do |s|
 
 	s.test_spec 'Tests' do |ss|
 		ss.source_files = "Tests/*.{m,swift}"
+		ss.scheme = { :environment_variables => {'FB_REFERENCE_IMAGE_DIR' => "${PODS_TARGET_SRCROOT}/Tests/Snapshots" } }
+		ss.dependency 'MMMTestCase'
 	end
 
 	s.default_subspec = 'ObjC', 'Swift'
