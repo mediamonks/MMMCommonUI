@@ -63,22 +63,24 @@ public final class MMMTextLayoutTestCase: MMMTestCase {
 		]
 	}
 
-	private func text1(skipping: Set<Int> = []) -> NSAttributedString {
+	private func text1(skipping: Set<Int> = [], extraAttributes: [NSAttributedString.Key: Any] = [:]) -> NSAttributedString {
 
 		func placeholder(_ index: Int) -> NSAttributedString {
 			if !skipping.contains(index) {
-				MMMTextLayout.placeholderForView(index)
+				MMMTextLayout.placeholderForView(index, attributes: extraAttributes)
 			} else {
-				.init(string: "[skip]", attributes: [ .font: UIFont.italicSystemFont(ofSize: 14), .foregroundColor: MMMDebugColor(0) ])
+				.init(
+					string: "[skip]",
+					attributes: [ .font: UIFont.italicSystemFont(ofSize: 14), .foregroundColor: MMMDebugColor(0) ]
+						.merging(extraAttributes, uniquingKeysWith: { a, b in b })
+				)
 			}
 		}
 
 		return .init(
 			format: "A %@ is a view and a %@ is %@; enjoy little %@ as %@.",
-			attributes: [
-				.font: UIFont.systemFont(ofSize: 14),
-				.foregroundColor: MMMDebugColor(0)
-			],
+			attributes: [ .font: UIFont.systemFont(ofSize: 14), .foregroundColor: MMMDebugColor(0)]
+				.merging(extraAttributes, uniquingKeysWith: { a, b in b }),
 			args: [
 				placeholder(1),
 				placeholder(0),
@@ -140,5 +142,50 @@ public final class MMMTextLayoutTestCase: MMMTestCase {
 
 		layout.text = text1(skipping: [0, 2])
 		verify(view: layout, fit: .size(width: CGFloat(100), height: 0), identifier: "skipping-0-2", backgroundColor: .white)
+	}
+
+	public func testTrimLeading() {
+
+		let text = text1(extraAttributes: [:].withParagraphStyle { ps in ps.lineHeightMultiple = 1.5 })
+
+		let layout1 = MMMTextLayout()
+		layout1.setSubviews(threeViews())
+		layout1.text = text
+		verify(view: layout1, fit: .size(width: CGFloat(150), height: 0), identifier: "trimmed", backgroundColor: .white)
+
+		let layout2 = MMMTextLayout(shouldTrimLeading: false)
+		layout2.setSubviews(threeViews())
+		layout2.text = text
+		verify(view: layout2, fit: .size(width: CGFloat(150), height: 0), identifier: "not-trimmed", backgroundColor: .white)
+	}
+
+	public func testBaseline() {
+
+		let layout = MMMTextLayout()
+		layout.setSubviews(threeViews())
+		layout.text = text1()
+
+		let v = MarkerView()
+		layout.addSubview(v) // The layout allows adding unmanaged views.
+		NSLayoutConstraint.activate([
+			v.topAnchor.constraint(equalTo: layout.firstBaselineAnchor),
+			v.bottomAnchor.constraint(equalTo: layout.lastBaselineAnchor),
+			v.trailingAnchor.constraint(equalTo: layout.trailingAnchor)
+		])
+
+		verify(view: layout, fit: .size(width: CGFloat(150), height: 0))
+	}
+
+	private final class MarkerView: NonStoryboardableView {
+		public override init() {
+			super.init()
+			backgroundColor = MMMDebugColor(2)
+			NSLayoutConstraint.activate(.init(
+				item: self, attribute: .width,
+				relatedBy: .equal,
+				toItem: nil, attribute: .notAnAttribute,
+				multiplier: 1, constant: 2
+			))
+		}
 	}
 }

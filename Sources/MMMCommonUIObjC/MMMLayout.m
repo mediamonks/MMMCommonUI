@@ -22,29 +22,13 @@
 @implementation MMMSpacerView
 
 - (id)init {
-
 	if (self = [super initWithFrame:CGRectZero]) {
-
 		self.translatesAutoresizingMaskIntoConstraints = NO;
-
-		self.opaque = NO;
-		self.backgroundColor = [UIColor clearColor];
-
-		// It's not visible anyway, but let's further hide it just in case
 		self.hidden = YES;
-
-		// TODO: these make no sense as we don't have intrinsic content
-		[self setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-		[self setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
-		[self setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-		[self setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+		// Just in case it becomes visible for some reason.
+		self.opaque = NO;
 	}
-
 	return self;
-}
-
-- (CGSize)intrinsicContentSize {
-	return CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric);
 }
 
 @end
@@ -1283,6 +1267,10 @@ NSDictionary<NSString *, NSNumber *> *MMMDictionaryFromUIEdgeInsets(NSString *pr
 	}
 
 	return self;
+}
+
+- (UIView *)viewForLastBaselineLayout {
+	return _view;
 }
 
 - (void)addSubview:(UIView *)view {

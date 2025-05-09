@@ -15,21 +15,27 @@
 /// - The subviews are positioned with Auto Layout constraints against the leftmost points of their baselines.
 public class MMMTextLayout: NonStoryboardableView {
 
-	public override init() {
+	private let shouldTrimLeading: Bool
+
+	/// - Parameter shouldTrimLeading: when `true` (default), then the space above the ascent of the first line
+	///   is excluded from the layout. This is handy when paragraph style uses `lineHeightMultiple` but you don't want
+	///   increased padding before the first line.
+	public init(shouldTrimLeading: Bool = true) {
+		self.shouldTrimLeading = shouldTrimLeading
 		super.init()
 		self.isOpaque = false
 		self.contentMode = .redraw
 	}
+
+	private var managedViews: [ManagedView] = []
 
 	private struct ManagedView {
 		var view: UIView
 		var boundsGuide: UILayoutGuide
 		var ascentGuide: UILayoutGuide
 		var leftConstraint: NSLayoutConstraint
-		var topConstraint: NSLayoutConstraint
+		var baselineConstraint: NSLayoutConstraint
 	}
-
-	private var managedViews: [ManagedView] = []
 
 	/// The views to layout.
 	///
@@ -50,7 +56,7 @@ public class MMMTextLayout: NonStoryboardableView {
 				// The constants of both of these constraints are updated to position the views.
 				leftConstraint: view.leftAnchor.constraint(equalTo: self.leftAnchor),
 				// It's convenient to offset from the bottom as layout in CoreText is flipped.
-				topConstraint: self.bottomAnchor.constraint(equalTo: view.firstBaselineAnchor)
+				baselineConstraint: self.bottomAnchor.constraint(equalTo: view.firstBaselineAnchor)
 			)
 		}
 		for r in managedViews {
@@ -61,7 +67,7 @@ public class MMMTextLayout: NonStoryboardableView {
 		for r in managedViews {
 			NSLayoutConstraint.activate([
 				r.leftConstraint,
-				r.topConstraint,
+				r.baselineConstraint,
 				// One guide will give us width/height of the view without the need to size it separately.
 				r.boundsGuide.widthAnchor.constraint(equalTo: r.view.widthAnchor, multiplier: 1),
 				r.boundsGuide.heightAnchor.constraint(equalTo: r.view.heightAnchor, multiplier: 1),
@@ -70,7 +76,7 @@ public class MMMTextLayout: NonStoryboardableView {
 				r.ascentGuide.bottomAnchor.constraint(equalTo: r.view.firstBaselineAnchor)
 			])
 		}
-		resetFramesetter()
+		resetTextFrame()
 	}
 
 	/// The attributed text to render.
@@ -80,7 +86,7 @@ public class MMMTextLayout: NonStoryboardableView {
 	/// Object Replacement Character, `\u{FFFC}`; see ``PlaceholderCharacter``).
 	public var text: NSAttributedString = .init(string: "") {
 		didSet {
-			resetFramesetter()
+			resetTextFrame()
 		}
 	}
 
@@ -108,7 +114,7 @@ public class MMMTextLayout: NonStoryboardableView {
 		return runDelegate
 	}
 
-	private let RecordAttribute = NSAttributedString.Key("MMMTextLayout.ManagedView")
+	private let ManagedViewAttribute = NSAttributedString.Key("MMMTextLayout.ManagedView")
 
 	/// The value of this attribute should be an index (`Int`) of the subview to position at the corresponding
 	/// location in the text.
@@ -122,8 +128,14 @@ public class MMMTextLayout: NonStoryboardableView {
 
 	/// An attributed string consisting of a single ``PlaceholderCharacter`` with value of
 	/// ``ViewIndexAttribute`` on it set to ``index``.
-	public static func placeholderForView(_ index: Int) -> NSAttributedString {
-		.init(string: Self.PlaceholderCharacter, attributes: [ Self.ViewIndexAttribute: index ])
+	public static func placeholderForView(
+		_ index: Int,
+		attributes: [NSAttributedString.Key : Any] = [:]
+	) -> NSAttributedString {
+		.init(
+			string: Self.PlaceholderCharacter,
+			attributes: [ Self.ViewIndexAttribute: index ].merging(attributes, uniquingKeysWith: { a, b in a })
+		)
 	}
 
 	private func makeAttributedString() -> NSAttributedString {
@@ -149,7 +161,7 @@ public class MMMTextLayout: NonStoryboardableView {
 			s.addAttributes(
 				[
 					(kCTRunDelegateAttributeName as NSAttributedString.Key): runDelegate(r),
-					RecordAttribute: r
+					ManagedViewAttribute: r
 				],
 				range: range
 			)
@@ -157,120 +169,202 @@ public class MMMTextLayout: NonStoryboardableView {
 		return s
 	}
 
-	private var framesetter: CTFramesetter?
-
-	private func grabFramesetter() -> CTFramesetter {
-		if let framesetter {
-			return framesetter
-		} else {
-			let framesetter = CTFramesetterCreateWithAttributedString(makeAttributedString())
-			self.framesetter = framesetter
-			return framesetter
-		}
-	}
-
-	private func resetFramesetter() {
-		self.framesetter = nil
-		self.textFrame = nil
+	private func resetTextFrame() {
+		textFrame = nil
+		_alignmentRectInsets = .zero
+		_intrinsicContentSize = nil
 		invalidateIntrinsicContentSize()
 		setNeedsLayout()
-		setNeedsDisplay()
 	}
 
 	private var textFrame: CTFrame?
 
+	private func linesAndOrigins(_ textFrame: CTFrame) -> [(CTLine, CGPoint)] {
+		let lines = CTFrameGetLines(textFrame) as! [CTLine]
+
+		var origins: [CGPoint] = .init(repeating: .zero, count: lines.count)
+		CTFrameGetLineOrigins(textFrame, .init(location: 0, length: 0), &origins)
+
+		let origin = CTFrameGetPath(textFrame).boundingBoxOfPath.origin
+		return Array(zip(lines, origins.map { CGPoint(x: origin.x + $0.x, y: origin.y + $0.y) }))
+	}
+
 	private func updateTextFrame() {
 
-		self.setNeedsDisplay()
-
-		let framesetter = grabFramesetter()
+		let framesetter = CTFramesetterCreateWithAttributedString(makeAttributedString())
 
 		// All views are initially hidden, just in case they are not mentioned in the template or don't fit.
 		for r in managedViews {
 			r.view.isHidden = true
 		}
 
+		// Let's use a bit more space for the actual text frame to counter possible layout rounding issues
+		// causing the last line to not fit.
+		var b = bounds.integral
+		b.size.height += 1
+
 		self.textFrame = CTFramesetterCreateFrame(
 			framesetter,
 			.init(location: 0, length: 0), // 0 length for the whole string.
-			CGPath(rect: bounds, transform: nil),
+			CGPath(rect: b, transform: nil),
 			nil // No extra attributes.
 		)
 		guard let textFrame else {
 			// It is possible that the frame is not created when layout is too complex.
+			firstLineBounds = .init()
+			lastLineBounds = .init()
+			updateBaselineLayout()
+			_alignmentRectInsets = .zero
+			_intrinsicContentSize = nil
 			return
 		}
 
 		// Now we need to find runs corresponding to our placeholders and extract info on their positions.
 		// Simply enumerating all runs is OK for now as we don't expect large text.
-		let lines = CTFrameGetLines(textFrame) as! [CTLine]
-		var lineOrigins: [CGPoint] = .init(repeating: .zero, count: lines.count)
-		CTFrameGetLineOrigins(textFrame, .init(location: 0, length: 0), &lineOrigins)
-		let origin = CTFrameGetPath(textFrame).boundingBoxOfPath.origin
-		for lineAndOrigin in zip(lines, lineOrigins) {
+		let linesAndOrigins = linesAndOrigins(textFrame)
+		for lineAndOrigin in linesAndOrigins {
 			let (line, lineOrigin) = lineAndOrigin
 			for run in CTLineGetGlyphRuns(line) as! [CTRun] {
 				let runAttributes = CTRunGetAttributes(run) as! [NSAttributedString.Key: Any]
-				guard let record = runAttributes[RecordAttribute] as? ManagedView else {
+				guard let record = runAttributes[ManagedViewAttribute] as? ManagedView else {
 					continue
 				}
+
 				var runOrigin: CGPoint = .zero
 				CTRunGetPositions(run, .init(location: 0, length: 1), &runOrigin)
 
-				record.leftConstraint.constant = origin.x + lineOrigin.x + runOrigin.x
-				record.topConstraint.constant = origin.y + lineOrigin.y + runOrigin.y
+				record.leftConstraint.constant = lineOrigin.x + runOrigin.x
+				// We are rounding vertical position of each baseline here and when drawing them to avoid
+				// single pixel misalignments caused by rounding in Auto Layout.
+				record.baselineConstraint.constant = (lineOrigin.y + runOrigin.y).rounded(.toNearestOrAwayFromZero)
 
-				// Once the view is referenced and we can show it.
+				// Once the view is referenced we can show it.
 				record.view.isHidden = false
 			}
 		}
+
+		if let firstLine = linesAndOrigins.first, let lastLine = linesAndOrigins.last {
+			firstLineBounds = .init(line: firstLine.0, origin: firstLine.1)
+			lastLineBounds = .init(line: lastLine.0, origin: lastLine.1)
+		} else {
+			firstLineBounds = .init()
+			lastLineBounds = .init()
+		}
+		updateBaselineLayout()
+
+		// We want to push everything above the ascent line into margins.
+		let alignmentRectTop = shouldTrimLeading
+			? (bounds.maxY - (firstLineBounds.origin.y + firstLineBounds.ascent)).rounded(.toNearestOrAwayFromZero)
+			: 0
+		if _alignmentRectInsets.top != alignmentRectTop {
+			_alignmentRectInsets.top = alignmentRectTop
+			setNeedsUpdateConstraints()
+			setNeedsLayout()
+		}
+
+		func measure(_ size: CGSize) -> CGSize {
+			CTFramesetterSuggestFrameSizeWithConstraints(framesetter, .init(location: 0, length: 0), nil, size, nil)
+		}
+		_intrinsicContentSize = .init(
+			measure(.init(CGFLOAT_MAX, CGFLOAT_MAX)).width.rounded(.up),
+			(measure(.init(b.width, CGFLOAT_MAX)).height).rounded(.up)
+				- (_alignmentRectInsets.top + _alignmentRectInsets.bottom)
+		)
 	}
 
-	private var _intrinsicContentSize: (size: CGSize, boundsWidth: CGFloat)?
+	private struct LineBounds {
 
-	public override func invalidateIntrinsicContentSize() {
-		_intrinsicContentSize = nil
-		super.invalidateIntrinsicContentSize()
+		public var origin: CGPoint = .zero
+		public var width: CGFloat = 0
+		public var leading: CGFloat = 0
+		public var ascent: CGFloat = 0
+		public var descent: CGFloat = 0
+
+		public init(line: CTLine, origin: CGPoint) {
+			self.origin = origin
+			self.width = CTLineGetTypographicBounds(line, &ascent, &descent, &leading)
+		}
+
+		public init() {}
+	}
+
+	private var firstLineBounds = LineBounds()
+	private var lastLineBounds = LineBounds()
+
+	public override var alignmentRectInsets: UIEdgeInsets { _alignmentRectInsets }
+	private var _alignmentRectInsets: UIEdgeInsets = .zero
+
+	private struct BaselineLayout {
+		var view: MMMSpacerView
+		var firstConstraint: NSLayoutConstraint
+		var lastConstraint: NSLayoutConstraint
+	}
+
+	private var baselineLayout: BaselineLayout?
+
+	private func grabBaselineLayout() -> BaselineLayout {
+		if let baselineLayout {
+			return baselineLayout
+		}
+		let view = MMMSpacerView()
+		let baselineLayout = BaselineLayout(
+			view: view,
+			firstConstraint: self.bottomAnchor.constraint(equalTo: view.topAnchor),
+			lastConstraint: self.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+		)
+		addSubview(view)
+		NSLayoutConstraint.activate([baselineLayout.firstConstraint, baselineLayout.lastConstraint])
+		self.baselineLayout = baselineLayout
+		updateBaselineLayout()
+		return baselineLayout
+	}
+
+	private func updateBaselineLayout() {
+		guard let baselineLayout else {
+			return
+		}
+		baselineLayout.firstConstraint.constant = firstLineBounds.origin.y.rounded(.toNearestOrAwayFromZero)
+		baselineLayout.lastConstraint.constant = lastLineBounds.origin.y.rounded(.toNearestOrAwayFromZero)
 	}
 
 	public override var intrinsicContentSize: CGSize {
-
-		let width = bounds.width
-		if let _intrinsicContentSize, _intrinsicContentSize.boundsWidth == width {
-			return _intrinsicContentSize.size
+		if let _intrinsicContentSize {
+			return _intrinsicContentSize
 		}
+		updateTextFrame()
+		return _intrinsicContentSize ?? .zero
+	}
+	private var _intrinsicContentSize: CGSize?
 
-		let framesetter = grabFramesetter()
-		func sizeWithConstraints(_ size: CGSize) -> CGSize {
-			CTFramesetterSuggestFrameSizeWithConstraints(framesetter, .init(location: 0, length: 0), nil, size, nil)
-		}
-		let size = CGSize(
-			width: sizeWithConstraints(.init(width: CGFLOAT_MAX, height: CGFLOAT_MAX)).width.rounded(.up),
-			height: sizeWithConstraints(.init(width: width, height: CGFLOAT_MAX)).height.rounded(.up)
-		)
-		self._intrinsicContentSize = (size: size, boundsWidth: width)
-		return size
+	public override var forLastBaselineLayout: UIView {
+		grabBaselineLayout().view
 	}
 
 	public override func layoutSubviews() {
-		if _intrinsicContentSize?.boundsWidth != bounds.width {
-			invalidateIntrinsicContentSize()
-		}
 		updateTextFrame()
+		invalidateIntrinsicContentSize()
 		super.layoutSubviews()
 	}
 
 	public override func draw(_ rect: CGRect) {
-		guard let textFrame else {
+
+		guard let textFrame, let context = UIGraphicsGetCurrentContext() else {
 			return
 		}
-		guard let context = UIGraphicsGetCurrentContext() else {
-			preconditionFailure()
-		}
+
 		context.saveGState()
 		context.translateBy(x: 0, y: bounds.maxY)
 		context.scaleBy(x: 1, y: -1)
-		CTFrameDraw(textFrame, context)
+
+		// We cannot just use CTFrameDraw() here, because we want all baselines to be rounded to avoid single pixel
+		// misalignments caused by Auto Layout rounding.
+		for lineAndOrigin in linesAndOrigins(textFrame) {
+			var (line, lineOrigin) = lineAndOrigin
+			lineOrigin.y += lineOrigin.y.rounded(.toNearestOrAwayFromZero) - lineOrigin.y
+			context.textPosition = lineOrigin
+			CTLineDraw(line, context)
+		}
+
 		context.restoreGState()
 	}
 }
