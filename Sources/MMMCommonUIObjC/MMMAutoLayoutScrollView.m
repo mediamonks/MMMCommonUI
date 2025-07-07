@@ -176,7 +176,7 @@
 
 - (void)addSubview:(UIView *)view {
 	NSAssert(
-		!_hierarchyLocked || [NSStringFromClass([view class]) hasPrefix:@"UI"],
+		!_hierarchyLocked || ([NSStringFromClass([view class]) hasPrefix:@"UI"] || [NSStringFromClass([view class]) hasPrefix:@"_UI"]),
 		@"Add your subviews into `contentView` and not into %@ directly", self.class
 	);
 	[super addSubview:view];
