@@ -1,5 +1,5 @@
 //
-// Starbucks App.
+// MMMCommonUI. Part of MMMTemple.
 // Copyright (c) 2023 MediaMonks. All rights reserved.
 // 
 
