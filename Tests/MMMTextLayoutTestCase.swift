@@ -1,16 +1,17 @@
 //
 // MMMCommonUI. Part of MMMTemple.
-// Copyright (C) 2016-2025 Monks. All rights reserved.
+// Copyright (C) 2016-2026 Monks. All rights reserved.
 //
 
 import MMMCommonUI
+import MMMLog
 import MMMTestCase
 
 public final class MMMTextLayoutTestCase: MMMTestCase {
 
 	public override func setUp() {
 		super.setUp()
-		self.recordMode = false
+		self.recordMode = true
 	}
 
 	/// A stub view with a label and extra alignment rect to demo baseline alignment.
@@ -92,6 +93,26 @@ public final class MMMTextLayoutTestCase: MMMTestCase {
 				)
 			]
 		)
+	}
+
+	public func testSizeThatFits() {
+
+		let layout = MMMTextLayout()
+		layout.setSubviews(threeViews())
+		layout.text = text1()
+
+		let short1 = layout.sizeThatFits(.init(100, .infinity))
+		let short2 = layout.sizeThatFits(.init(100, 0))
+		XCTAssert(short1 == short2)
+		XCTAssert(short1 == .init(width: 96, height: 137))
+		MMMLogTrace(self, "Constrained to 100pt: \(short1)")
+
+		let natural1 = layout.sizeThatFits(.init(0, 0))
+		let natural2 = layout.sizeThatFits(.init(.infinity, .infinity))
+		let natural3 = layout.sizeThatFits(.init(0, .infinity))
+		XCTAssert(natural1 == natural2 && natural2 == natural3)
+		XCTAssert(natural1 == .init(width: 444, height: 38))
+		MMMLogTrace(self, "Natural size: \(natural1)")
 	}
 
 	public func testBasics() {

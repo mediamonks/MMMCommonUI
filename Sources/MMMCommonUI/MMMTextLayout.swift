@@ -1,6 +1,6 @@
 //
 // MMMCommonUI. Part of MMMTemple.
-// Copyright (C) 2016-2025 Monks. All rights reserved.
+// Copyright (C) 2016-2026 Monks. All rights reserved.
 //
 
 /// A view that allows mixing attributed text with custom views, something that is handy when you want to use a custom
@@ -13,6 +13,9 @@
 /// - Sizes and baselines of the referenced subviews are determined using Auto Layout. Unreferenced subviews are hidden.
 /// - The ``text`` is rendered via CoreText with space reserved for the subviews in the corresponding locations.
 /// - The subviews are positioned with Auto Layout constraints against the leftmost points of their baselines.
+///
+/// Note that to support SwiftUI wrappers the old ``sizeThatFits(_:)`` API is supported here to allow estimating
+/// the height of the view given proposed width.
 public class MMMTextLayout: NonStoryboardableView {
 
 	private let shouldTrimLeading: Bool
@@ -187,6 +190,41 @@ public class MMMTextLayout: NonStoryboardableView {
 
 		let origin = CTFrameGetPath(textFrame).boundingBoxOfPath.origin
 		return Array(zip(lines, origins.map { CGPoint(x: origin.x + $0.x, y: origin.y + $0.y) }))
+	}
+
+	public override func sizeThatFits(_ size: CGSize) -> CGSize {
+
+		let constrainedSize = CGSize(
+			width: size.width <= 0 ? .infinity : size.width.rounded(.down),
+			height: 10_000
+		)
+
+		// To make sure managed subviews got their preferred sizes.
+		// This is not needed in updateTextFrame() which is called after the layout pass.
+		layoutIfNeeded()
+
+		let framesetter = CTFramesetterCreateWithAttributedString(makeAttributedString())
+
+		let textFrame = CTFramesetterCreateFrame(
+			framesetter,
+			.init(location: 0, length: 0),
+			CGPath(rect: .init(size: constrainedSize), transform: nil),
+			nil
+		)
+
+		let linesAndOrigins = linesAndOrigins(textFrame)
+		let firstLineBounds: LineBounds = linesAndOrigins.first.map { .init(line: $0.0, origin: $0.1) } ?? .init()
+
+		// We want to push everything above the ascent line into margins.
+		let alignmentRectTop = shouldTrimLeading
+			? (constrainedSize.height - (firstLineBounds.origin.y + firstLineBounds.ascent)).rounded(.toNearestOrAwayFromZero)
+			: 0
+
+		let result = CTFramesetterSuggestFrameSizeWithConstraints(
+			framesetter, .init(location: 0, length: 0), nil,
+			constrainedSize, nil
+		)
+		return .init(result.width.rounded(.up), (result.height - alignmentRectTop).rounded(.up))
 	}
 
 	private func updateTextFrame() {

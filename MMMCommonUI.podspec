@@ -1,12 +1,12 @@
 #
 # MMMCommonUI. Part of MMMTemple.
-# Copyright (C) 2015-2020 MediaMonks. All rights reserved.
+# Copyright (C) 2015-2026 MediaMonks. All rights reserved.
 #
 
 Pod::Spec.new do |s|
 
 	s.name = "MMMCommonUI"
-	s.version = "3.14.3"
+	s.version = "3.14.4"
 	s.summary = "Small UI-related pieces reused in many components from MMMTemple"
 	s.description =	"#{s.summary}."
 	s.homepage = "https://github.com/mediamonks/#{s.name}"
@@ -43,6 +43,7 @@ Pod::Spec.new do |s|
 		ss.source_files = "Tests/*.{m,swift}"
 		ss.scheme = { :environment_variables => {'FB_REFERENCE_IMAGE_DIR' => "${PODS_TARGET_SRCROOT}/Tests/Snapshots" } }
 		ss.dependency 'MMMTestCase'
+		ss.requires_app_host = true
 	end
 
 	s.default_subspec = 'ObjC', 'Swift'
