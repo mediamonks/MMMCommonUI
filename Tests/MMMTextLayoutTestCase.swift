@@ -11,7 +11,7 @@ public final class MMMTextLayoutTestCase: MMMTestCase {
 
 	public override func setUp() {
 		super.setUp()
-		self.recordMode = true
+		self.recordMode = false
 	}
 
 	/// A stub view with a label and extra alignment rect to demo baseline alignment.
@@ -80,8 +80,10 @@ public final class MMMTextLayoutTestCase: MMMTestCase {
 
 		return .init(
 			format: "A %@ is a view and a %@ is %@; enjoy little %@ as %@.",
-			attributes: [ .font: UIFont.systemFont(ofSize: 14), .foregroundColor: MMMDebugColor(0)]
-				.merging(extraAttributes, uniquingKeysWith: { a, b in b }),
+			attributes: [
+					.font: UIFont.systemFont(ofSize: 14),
+					.foregroundColor: MMMDebugColor(0)
+				].merging(extraAttributes, uniquingKeysWith: { a, b in b }),
 			args: [
 				placeholder(1),
 				placeholder(0),
