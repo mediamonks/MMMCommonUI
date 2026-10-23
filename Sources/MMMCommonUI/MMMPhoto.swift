@@ -27,10 +27,12 @@ public final class MMMPhotoFromLoadableImage: NSObject, MMMPhoto {
 ///
 /// Sometimes we need to implement a non-optional `MMMPhoto` without having an image. Returning an always failing
 /// to load image is better in this case as it would allow to fall back to a placeholder of the corresponding image view.
+///
+/// The image is in the failed state from the start, so views can show their placeholders right away,
+/// without waiting for the image to be synced.
 public final class MMMEmptyPhoto: NSObject, MMMPhoto {
 
-	// Using the property of `MMMPublicLoadableImage` to quickly fail for `nil` images.
-	private lazy var image = MMMPublicLoadableImage(url: nil)
+	private lazy var image = MMMImmediateLoadableImage(image: nil)
 
 	public func image(forTargetSize targetSize: CGSize, contentMode: MMMPhotoContentMode) -> MMMLoadableImage {
 		self.image
